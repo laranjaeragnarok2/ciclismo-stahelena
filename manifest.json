@@ -1,7 +1,7 @@
 {
-  "name": "Ciclismo Santa Helena - App Oficial",
+  "name": "Ciclismo Santa Helena Sports - App Oficial",
   "short_name": "CiclismoSH",
-  "description": "App Oficial da Associação Santa-Helenense de Ciclismo. Eventos, cicloturismo, rotas e galeria.",
+  "description": "App Oficial do Ciclismo Santa Helena Sports. Eventos, cicloturismo, rotas e galeria.",
   "start_url": "/index.html",
   "display": "standalone",
   "background_color": "#0B192C",

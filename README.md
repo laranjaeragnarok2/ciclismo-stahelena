@@ -1,12 +1,12 @@
-# 🚴‍♂️ Associação Santa-Helenense de Ciclismo
+# 🚴‍♂️ Ciclismo Santa Helena Sports
 
-> **Hub de Rotas GPX, Leaderboard Strava, Calendário de Eventos e App Oficial PWA** da Associação Santa-Helenense de Ciclismo (Santa Helena - PR).
+> **Hub de Rotas GPX, Leaderboard Strava, Calendário de Eventos e App Oficial PWA** do Ciclismo Santa Helena Sports (Santa Helena - PR).
 
 ---
 
 ## 🎯 Sobre o Projeto
 
-O **Portal & App Ciclismo Santa Helena** é uma plataforma digital moderna e responsiva projetada para centralizar a vida esportiva e turística dos ciclistas da Região Oeste do Paraná (Balneário Terra das Águas, Refúgio Biológico da Itaipu e circuitos rurais).
+O **Portal & App Ciclismo Santa Helena Sports** é uma plataforma digital moderna e responsiva projetada para centralizar a vida esportiva e turística dos ciclistas da Região Oeste do Paraná (Balneário Terra das Águas, Refúgio Biológico da Itaipu e circuitos rurais).
 
 Desenvolvido como uma **Progressive Web App (PWA)** de alta performance, o projeto funciona tanto no navegador desktop/mobile quanto instalado diretamente na tela inicial do smartphone com suporte offline.
 
@@ -65,4 +65,4 @@ A interface utiliza um design moderno baseado em **Glassmorphism**, modo escuro 
 
 ## 📜 Licença & Direitos
 
-© 2026 **Associação Santa-Helenense de Ciclismo**. Todos os direitos reservados.
+© 2026 **Ciclismo Santa Helena Sports**. Todos os direitos reservados.
