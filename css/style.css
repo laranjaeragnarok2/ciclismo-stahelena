@@ -1,0 +1,1185 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;700;800;900&display=swap');
+
+:root {
+    --primary-orange: #FF5722;
+    --primary-orange-hover: #e64a19;
+    --accent-yellow: #FFC107;
+    --bg-dark: #0B192C;
+    --bg-card: rgba(15, 32, 56, 0.75);
+    --bg-card-border: rgba(255, 255, 255, 0.12);
+    --forest-green: #1E5128;
+    --text-white: #FFFFFF;
+    --text-muted: #A0AEC0;
+    --strava-orange: #FC4C02;
+    --font-heading: 'Outfit', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --shadow-glow: 0 10px 30px rgba(255, 87, 34, 0.35);
+    --glass-backdrop: blur(16px);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-dark);
+    color: var(--text-white);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Header & Navigation */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(11, 25, 44, 0.88);
+    backdrop-filter: var(--glass-backdrop);
+    border-bottom: 1px solid var(--bg-card-border);
+    padding: 14px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.3s, padding 0.3s;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--text-white);
+}
+
+.logo-container img {
+    height: 48px;
+    width: 48px;
+    border-radius: 50%;
+    border: 2px solid var(--primary-orange);
+    object-fit: cover;
+    box-shadow: 0 0 15px rgba(255, 87, 34, 0.4);
+}
+
+.logo-text h1 {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.logo-text span {
+    color: var(--primary-orange);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 24px;
+}
+
+nav a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    position: relative;
+    padding: 4px 0;
+    transition: color 0.3s;
+}
+
+nav a:hover, nav a.active {
+    color: var(--primary-orange);
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: var(--primary-orange);
+    transition: width 0.3s ease;
+}
+
+nav a.active::after, nav a:hover::after {
+    width: 100%;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.btn-pwa {
+    background: linear-gradient(135deg, var(--primary-orange), #FF8A65);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: var(--shadow-glow);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-pwa:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 35px rgba(255, 87, 34, 0.5);
+}
+
+/* Hamburger Menu Button */
+.hamburger-btn {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+    padding: 5px;
+}
+
+.hamburger-btn .bar {
+    width: 26px;
+    height: 3px;
+    background-color: var(--text-white);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.hamburger-btn.active .bar:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 6px);
+}
+.hamburger-btn.active .bar:nth-child(2) {
+    opacity: 0;
+}
+.hamburger-btn.active .bar:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -6px);
+}
+
+/* Hero Section & Slider */
+.hero-section {
+    position: relative;
+    width: 100%;
+    min-height: 90vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.hero-slider {
+    position: relative;
+    width: 100%;
+    min-height: 90vh;
+}
+
+.hero-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    padding: 140px 8% 80px 8%;
+}
+
+.hero-slide.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.hero-content {
+    max-width: 680px;
+    z-index: 10;
+}
+
+.badge-tag {
+    display: inline-block;
+    background: rgba(255, 87, 34, 0.18);
+    color: var(--primary-orange);
+    border: 1px solid rgba(255, 87, 34, 0.4);
+    padding: 6px 18px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    backdrop-filter: var(--glass-backdrop);
+}
+
+.hero-content h2 {
+    font-family: var(--font-heading);
+    font-size: 3.6rem;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+
+.hero-content h2 span {
+    background: linear-gradient(135deg, var(--primary-orange), var(--accent-yellow));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-content p {
+    font-size: 1.15rem;
+    color: #CBD5E0;
+    margin-bottom: 32px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.btn-primary {
+    background: var(--primary-orange);
+    color: white;
+    padding: 14px 32px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    box-shadow: var(--shadow-glow);
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn-primary:hover {
+    background: var(--primary-orange-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(255, 87, 34, 0.45);
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid var(--bg-card-border);
+    padding: 14px 32px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    backdrop-filter: var(--glass-backdrop);
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+}
+
+/* Slider Controls */
+.slider-controls {
+    position: absolute;
+    bottom: 30px;
+    right: 8%;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    z-index: 20;
+}
+
+.slider-arrow {
+    background: rgba(15, 32, 56, 0.8);
+    border: 1px solid var(--bg-card-border);
+    color: white;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+.slider-arrow:hover {
+    background: var(--primary-orange);
+    border-color: var(--primary-orange);
+}
+
+.slider-dots {
+    display: flex;
+    gap: 8px;
+}
+
+.slider-dots .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.slider-dots .dot.active {
+    background: var(--primary-orange);
+    width: 28px;
+    border-radius: 10px;
+}
+
+/* Stats Section */
+.stats-container {
+    padding: 0 8%;
+    margin-top: -50px;
+    z-index: 30;
+    position: relative;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.stat-card {
+    background: var(--bg-card);
+    backdrop-filter: var(--glass-backdrop);
+    border: 1px solid var(--bg-card-border);
+    padding: 26px 20px;
+    border-radius: 20px;
+    text-align: center;
+    transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stat-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--primary-orange);
+    box-shadow: 0 15px 35px rgba(255, 87, 34, 0.2);
+}
+
+.stat-icon {
+    font-size: 2rem;
+    margin-bottom: 8px;
+}
+
+.stat-number {
+    font-family: var(--font-heading);
+    font-size: 2.8rem;
+    font-weight: 900;
+    color: var(--accent-yellow);
+    display: inline-block;
+    line-height: 1;
+}
+
+.stat-suffix {
+    display: inline-block;
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--accent-yellow);
+    line-height: 1;
+}
+
+.stat-label {
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-top: 8px;
+    letter-spacing: 0.5px;
+}
+
+/* Common Section Layout */
+.section {
+    padding: 90px 8%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-title h3 {
+    font-family: var(--font-heading);
+    font-size: 2.6rem;
+    font-weight: 800;
+    margin-top: 8px;
+}
+
+.section-title p {
+    color: var(--text-muted);
+    max-width: 640px;
+    margin: 12px auto 0 auto;
+    font-size: 1.05rem;
+}
+
+.sub-heading {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 50px 0 24px 0;
+    text-align: center;
+}
+
+/* Hub de Rotas Layout & Leaflet Map */
+.routes-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.map-wrapper {
+    background: var(--bg-card);
+    backdrop-filter: var(--glass-backdrop);
+    border: 1px solid var(--bg-card-border);
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.map-header {
+    padding: 16px 20px;
+    background: rgba(11, 25, 44, 0.9);
+    border-bottom: 1px solid var(--bg-card-border);
+}
+
+.map-header h4 {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    color: var(--text-white);
+}
+
+.map-status {
+    font-size: 0.8rem;
+    color: var(--accent-yellow);
+}
+
+.leaflet-map-container {
+    height: 420px;
+    width: 100%;
+    z-index: 1;
+}
+
+.route-builder-card {
+    background: var(--bg-card);
+    backdrop-filter: var(--glass-backdrop);
+    border: 1px solid var(--bg-card-border);
+    padding: 30px;
+    border-radius: 20px;
+}
+
+.route-builder-card h4 {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    margin-bottom: 6px;
+}
+
+.route-form .form-group {
+    margin-bottom: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.route-form label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--accent-yellow);
+}
+
+.route-form input, .route-form select, .route-form textarea {
+    background: rgba(11, 25, 44, 0.9);
+    border: 1px solid var(--bg-card-border);
+    border-radius: 12px;
+    padding: 12px 16px;
+    color: white;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.route-form input:focus, .route-form select:focus, .route-form textarea:focus {
+    border-color: var(--primary-orange);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 15px;
+}
+
+/* Event & Route Cards Grid */
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.event-card {
+    background: var(--bg-card);
+    backdrop-filter: var(--glass-backdrop);
+    border: 1px solid var(--bg-card-border);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.event-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--primary-orange);
+    box-shadow: var(--shadow-glow);
+}
+
+.event-header {
+    background: linear-gradient(135deg, rgba(255, 87, 34, 0.25), rgba(11, 25, 44, 0.95));
+    padding: 18px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--bg-card-border);
+}
+
+.event-date {
+    background: var(--primary-orange);
+    color: white;
+    padding: 6px 14px;
+    border-radius: 12px;
+    font-weight: 800;
+    font-size: 0.85rem;
+}
+
+.event-category {
+    color: var(--accent-yellow);
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+}
+
+.event-body {
+    padding: 24px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.event-body h4 {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 14px;
+}
+
+.event-meta {
+    list-style: none;
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    margin-bottom: 20px;
+}
+
+.event-meta li {
+    margin-bottom: 8px;
+}
+
+.btn-event {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background: rgba(255, 87, 34, 0.15);
+    color: var(--primary-orange);
+    border: 1px solid rgba(255, 87, 34, 0.4);
+    padding: 12px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-event:hover {
+    background: var(--primary-orange);
+    color: white;
+}
+
+/* Event Filter Bar */
+.event-filter-bar {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--bg-card-border);
+    color: var(--text-muted);
+    padding: 10px 24px;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.filter-btn:hover, .filter-btn.active {
+    background: var(--primary-orange);
+    color: white;
+    border-color: var(--primary-orange);
+}
+
+/* Strava Section & Leaderboard */
+.strava-section {
+    background: radial-gradient(circle at center, rgba(252, 76, 2, 0.1), transparent 70%),
+                linear-gradient(to bottom, var(--bg-dark), #081220);
+    border-top: 1px solid rgba(252, 76, 2, 0.25);
+    border-bottom: 1px solid rgba(252, 76, 2, 0.25);
+}
+
+.strava-badge {
+    background: rgba(252, 76, 2, 0.18);
+    color: var(--strava-orange);
+    border-color: rgba(252, 76, 2, 0.4);
+}
+
+.strava-container {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 30px;
+}
+
+.strava-connect-card {
+    background: var(--bg-card);
+    backdrop-filter: var(--glass-backdrop);
+    border: 1px solid rgba(252, 76, 2, 0.3);
+    padding: 35px;
+    border-radius: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.strava-logo {
+    height: 45px;
+    margin-bottom: 20px;
+}
+
+.btn-strava {
+    background: var(--strava-orange);
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(252, 76, 2, 0.35);
+    transition: all 0.3s;
+}
+
+.btn-strava:hover {
+    background: #e04300;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(252, 76, 2, 0.5);
+}
+
+.leaderboard-card {
+    background: var(--bg-card);
+    backdrop-filter: var(--glass-backdrop);
+    border: 1px solid var(--bg-card-border);
+    border-radius: 20px;
+    padding: 25px;
+}
+
+.leaderboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.leaderboard-header h4 {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+}
+
+.segment-tabs {
+    display: flex;
+    gap: 8px;
+}
+
+.seg-tab {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--bg-card-border);
+    color: var(--text-muted);
+    padding: 6px 14px;
+    border-radius: 15px;
+    font-size: 0.82rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.seg-tab.active {
+    background: var(--strava-orange);
+    color: white;
+    border-color: var(--strava-orange);
+}
+
+.leaderboard-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.leaderboard-item {
+    background: rgba(11, 25, 44, 0.7);
+    border: 1px solid var(--bg-card-border);
+    border-radius: 12px;
+    padding: 12px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background 0.3s;
+}
+
+.leaderboard-item:hover {
+    background: rgba(11, 25, 44, 0.95);
+    border-color: var(--strava-orange);
+}
+
+.athlete-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.athlete-rank {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 1.1rem;
+    width: 28px;
+    text-align: center;
+}
+
+.athlete-avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--strava-orange);
+}
+
+.athlete-name {
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.athlete-meta {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+.athlete-time {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--accent-yellow);
+}
+
+/* Album Gallery Tabs & Grid */
+.album-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 35px;
+}
+
+.tab-btn {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--bg-card-border);
+    color: var(--text-muted);
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.tab-btn:hover, .tab-btn.active {
+    background: var(--primary-orange);
+    color: white;
+    border-color: var(--primary-orange);
+    box-shadow: 0 4px 15px rgba(255, 87, 34, 0.3);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.gallery-card {
+    position: relative;
+    border-radius: 18px;
+    overflow: hidden;
+    height: 240px;
+    cursor: pointer;
+    background: #000;
+    border: 1px solid var(--bg-card-border);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    transition: transform 0.4s ease, border-color 0.4s ease;
+}
+
+.gallery-card:hover {
+    transform: translateY(-6px) scale(1.02);
+    border-color: var(--primary-orange);
+}
+
+.gallery-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.gallery-card:hover img {
+    transform: scale(1.1);
+}
+
+.gallery-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(11, 25, 44, 0.92) 0%, rgba(11, 25, 44, 0.2) 60%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 18px;
+}
+
+.gallery-card:hover .gallery-card-overlay {
+    opacity: 1;
+}
+
+.gallery-card-tag {
+    font-size: 0.75rem;
+    color: var(--accent-yellow);
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.gallery-card-title {
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: white;
+}
+
+/* Lightbox Modal */
+.lightbox-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    background: rgba(5, 12, 22, 0.95);
+    backdrop-filter: blur(20px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+}
+
+.lightbox-modal.show {
+    display: flex;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 25px;
+    right: 35px;
+    color: white;
+    font-size: 2.5rem;
+    cursor: pointer;
+    z-index: 2010;
+    transition: color 0.3s;
+}
+
+.lightbox-close:hover {
+    color: var(--primary-orange);
+}
+
+.lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--bg-card-border);
+    color: white;
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+    z-index: 2010;
+}
+
+.lightbox-nav:hover {
+    background: var(--primary-orange);
+}
+
+.lightbox-nav.prev { left: 30px; }
+.lightbox-nav.next { right: 30px; }
+
+.lightbox-content {
+    max-width: 90vw;
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.lightbox-content img {
+    max-width: 100%;
+    max-height: 75vh;
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+    object-fit: contain;
+}
+
+.lightbox-caption {
+    margin-top: 15px;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+/* Event Registration Modal */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    background: rgba(5, 12, 22, 0.88);
+    backdrop-filter: blur(16px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.modal-overlay.show {
+    display: flex;
+}
+
+.modal-container {
+    background: var(--bg-dark);
+    border: 1px solid var(--bg-card-border);
+    border-radius: 24px;
+    width: 100%;
+    max-width: 540px;
+    padding: 30px;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+    position: relative;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--bg-card-border);
+    padding-bottom: 12px;
+}
+
+.modal-header h4 {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    color: var(--primary-orange);
+}
+
+.modal-close {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+.modal-close:hover {
+    color: white;
+}
+
+.modal-form .form-group {
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.modal-form label {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--accent-yellow);
+}
+
+.modal-form input, .modal-form select {
+    background: rgba(15, 32, 56, 0.9);
+    border: 1px solid var(--bg-card-border);
+    border-radius: 12px;
+    padding: 12px;
+    color: white;
+    font-family: var(--font-body);
+    outline: none;
+}
+
+.modal-form input:focus, .modal-form select:focus {
+    border-color: var(--primary-orange);
+}
+
+/* Contact Card & Footer */
+.contact-card {
+    background: var(--bg-card);
+    backdrop-filter: var(--glass-backdrop);
+    border: 1px solid var(--bg-card-border);
+    padding: 40px;
+    border-radius: 24px;
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contact-info p {
+    font-size: 1.1rem;
+    margin-bottom: 14px;
+}
+
+.contact-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 25px;
+    flex-wrap: wrap;
+}
+
+footer {
+    background: #050C16;
+    border-top: 1px solid var(--bg-card-border);
+    padding: 35px 8%;
+    color: var(--text-muted);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: white;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 992px) {
+    .routes-layout, .strava-container {
+        grid-template-columns: 1fr;
+    }
+    .hero-content h2 {
+        font-size: 2.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 12px 5%;
+    }
+
+    nav {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: rgba(11, 25, 44, 0.98);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid var(--bg-card-border);
+        padding: 20px;
+        display: none;
+    }
+
+    nav.show {
+        display: block;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 16px;
+        align-items: center;
+    }
+
+    .hamburger-btn {
+        display: flex;
+    }
+
+    .hero-slide {
+        padding: 120px 5% 60px 5%;
+    }
+
+    .hero-content h2 {
+        font-size: 2.2rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .section {
+        padding: 60px 5%;
+    }
+
+    .stats-container {
+        margin-top: -30px;
+    }
+
+    .lightbox-nav.prev { left: 10px; }
+    .lightbox-nav.next { right: 10px; }
+}
+

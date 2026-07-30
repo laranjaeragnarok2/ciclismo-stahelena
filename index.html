@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Associação Santa-Helenense de Ciclismo - Hub de Rotas & App Oficial</title>
+    <meta name="description" content="Portal e App Oficial da Associação Santa-Helenense de Ciclismo. Hub de rotas GPX interativo, mapa Leaflet, integração Strava, eventos de cicloturismo, MTB e galeria de mídias curadas.">
+    
+    <!-- Open Graph / Meta tags -->
+    <meta property="og:title" content="Ciclismo Santa Helena - Portal & App Oficial">
+    <meta property="og:description" content="Explore rotas de cicloturismo e MTB, sincronize seu Strava e participe dos eventos no Balneário Terra das Águas.">
+    <meta property="og:image" content="assets/logo.jpg">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#FF5722">
+    
+    <!-- Leaflet OpenStreetMap CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header id="mainHeader">
+        <a href="#home" class="logo-container">
+            <img src="assets/logo.jpg" alt="Logo Ciclismo Santa Helena">
+            <div class="logo-text">
+                <h1>Ciclismo <span>Santa Helena</span></h1>
+            </div>
+        </a>
+
+        <nav id="navMenu">
+            <ul>
+                <li><a href="#home" class="nav-link active">Início</a></li>
+                <li><a href="#eventos" class="nav-link">Eventos</a></li>
+                <li><a href="#hub-rotas" class="nav-link">Hub de Rotas</a></li>
+                <li><a href="#strava" class="nav-link">Strava & KOM</a></li>
+                <li><a href="#galeria" class="nav-link">Galeria</a></li>
+                <li><a href="#contato" class="nav-link">Contato</a></li>
+            </ul>
+        </nav>
+
+        <div class="header-actions">
+            <button id="btnInstallApp" class="btn-pwa">
+                <span>📲</span> Baixar App
+            </button>
+            <button id="mobileMenuBtn" class="hamburger-btn" aria-label="Abrir Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section (Widescreen Slider) -->
+    <section id="home" class="hero-section">
+        <div class="hero-slider" id="heroSlider">
+            <!-- Slide 1 -->
+            <div class="hero-slide active" style="background-image: linear-gradient(to bottom, rgba(11,25,44,0.65), rgba(11,25,44,0.92)), url('midias/albuns_curados/02_Cicloturismo_Terra_das_Aguas/Album_Cicloturismo_Terra_das_Aguas_02.jpg');">
+                <div class="hero-content">
+                    <span class="badge-tag">🌊 Terra das Águas • Santa Helena - PR</span>
+                    <h2>Hub de Rotas & <span>Comunidade de Ciclismo</span></h2>
+                    <p>Descubra, crie, avalie e compartilhe os melhores percursos de Mountain Bike e Cicloturismo de Santa Helena. Conecte sua conta do Strava e faça parte do nosso clube!</p>
+                    <div class="hero-buttons">
+                        <a href="#hub-rotas" class="btn-primary">🗺️ Explorar Rotas GPX</a>
+                        <a href="#strava" class="btn-secondary">🧡 Ranking Strava KOM</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="hero-slide" style="background-image: linear-gradient(to bottom, rgba(11,25,44,0.65), rgba(11,25,44,0.92)), url('midias/albuns_curados/03_Trilhas_MTB_Itaipu/Album_Trilhas_MTB_Itaipu_06.jpg');">
+                <div class="hero-content">
+                    <span class="badge-tag">🚵 Desafios MTB & Natureza</span>
+                    <h2>Trilhas do <span>Refúgio Biológico Itaipu</span></h2>
+                    <p>Percursos desafiadores em meio à mata atlântica nativa e margens do Lago de Itaipu. Baixe arquivos GPX direto para o seu GPS Garmin ou Wahoo.</p>
+                    <div class="hero-buttons">
+                        <a href="#eventos" class="btn-primary">📅 Ver Próximos Pedais</a>
+                        <a href="#galeria" class="btn-secondary">📸 Ver Galeria de Fotos</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="hero-slide" style="background-image: linear-gradient(to bottom, rgba(11,25,44,0.65), rgba(11,25,44,0.92)), url('midias/albuns_curados/01_Podios_e_Conquistas/Album_Podios_e_Conquistas_05.jpg');">
+                <div class="hero-content">
+                    <span class="badge-tag">🏆 Pódios & Conquistas Regionais</span>
+                    <h2>Superação & <span>Espírito de Equipe</span></h2>
+                    <p>Mais de 150 ciclistas conectados participando de etapas regionais de cicloturismo e provas de Mountain Bike pelo Sul do Brasil.</p>
+                    <div class="hero-buttons">
+                        <a href="#galeria" class="btn-primary">🏆 Ver Álbum de Pódios</a>
+                        <a href="#contato" class="btn-secondary">📍 Onde Pedalar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls Slider -->
+        <div class="slider-controls">
+            <button class="slider-arrow prev" id="sliderPrev" aria-label="Slide Anterior">❮</button>
+            <div class="slider-dots" id="sliderDots">
+                <span class="dot active" data-slide="0"></span>
+                <span class="dot" data-slide="1"></span>
+                <span class="dot" data-slide="2"></span>
+            </div>
+            <button class="slider-arrow next" id="sliderNext" aria-label="Próximo Slide">❯</button>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-container">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">🚴‍♂️</div>
+                <div class="stat-number" data-target="5200">0</div>
+                <div class="stat-suffix">+</div>
+                <div class="stat-label">Km Percorridos em Trilhas</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">📸</div>
+                <div class="stat-number" data-target="690">0</div>
+                <div class="stat-suffix">+</div>
+                <div class="stat-label">Fotos de Eventos Curadas</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">👥</div>
+                <div class="stat-number" data-target="150">0</div>
+                <div class="stat-suffix">+</div>
+                <div class="stat-label">Ciclistas Ativos no Clube</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🗺️</div>
+                <div class="stat-number" data-target="28">0</div>
+                <div class="stat-suffix">+</div>
+                <div class="stat-label">Rotas Mapeadas com GPX</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hub de Rotas Section (Leaflet Map + GPX Viewer + Community Reviews) -->
+    <section id="hub-rotas" class="section">
+        <div class="section-title">
+            <span class="badge-tag">Cycling Hub & Maps</span>
+            <h3>Hub de Rotas & Percursos GPX</h3>
+            <p>Explore no mapa interativo as rotas oficiais de Santa Helena, faça download do arquivo GPX ou cadastre o seu percurso para a comunidade.</p>
+        </div>
+
+        <div class="routes-layout">
+            <!-- Interative Map Container -->
+            <div class="map-wrapper">
+                <div class="map-header">
+                    <h4>📍 Mapa Interativo de Percursos de Santa Helena</h4>
+                    <span class="map-status">Clique em um marcador ou rota para ver altimetria e detalhes</span>
+                </div>
+                <div id="routeMap" class="leaflet-map-container"></div>
+            </div>
+
+            <!-- Route Builder Form -->
+            <div class="route-builder-card">
+                <h4>🗺️ Cadastrar Nova Rota no Hub</h4>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">Adicione o percurso do seu treino ou pedal em grupo para os ciclistas avaliarem.</p>
+                
+                <form id="routeForm" class="route-form">
+                    <div class="form-group">
+                        <label for="routeName">Nome da Rota / Percurso</label>
+                        <input type="text" id="routeName" placeholder="Ex: Trilha do Refúgio Biológico Itaipu" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="routeDistance">Distância (Km)</label>
+                            <input type="number" id="routeDistance" placeholder="Ex: 45" step="0.1" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="routeElevation">Altimetria / Ganho (m)</label>
+                            <input type="number" id="routeElevation" placeholder="Ex: 650" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="routeCategory">Modalidade</label>
+                            <select id="routeCategory">
+                                <option value="MTB">Mountain Bike (MTB)</option>
+                                <option value="Cicloturismo">Cicloturismo</option>
+                                <option value="Road / Speed">Road / Speed</option>
+                                <option value="Passeio Família">Passeio Família</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="routeDescription">Descrição & Pontos de Água / Apoio</label>
+                        <textarea id="routeDescription" rows="3" placeholder="Descreva os destaques da rota, estado da estrada e pontos de apoio com água..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary" style="width: 100%;">🚀 Publicar Rota no Hub</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Lista de Rotas em Destaque -->
+        <h4 class="sub-heading">Rotas em Destaque Avaliadas pela Comunidade</h4>
+        
+        <div class="events-grid" id="routesList">
+            <!-- Rotas serão renderizadas dinamicamente via JS -->
+        </div>
+    </section>
+
+    <!-- Strava Integration & Leaderboard Section -->
+    <section id="strava" class="section strava-section">
+        <div class="section-title">
+            <span class="badge-tag strava-badge">Conexão Strava API</span>
+            <h3>Ranking de Segmentos Locais (KOM / QOM)</h3>
+            <p>Conecte sua conta do Strava para sincronizar treinos, disputar os segmentos da região e validar sua presença nos eventos oficiais.</p>
+        </div>
+
+        <div class="strava-container">
+            <div class="strava-connect-card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/Strava_Logo.svg" alt="Strava Logo" class="strava-logo">
+                <h4>Conecte seu perfil do Strava</h4>
+                <p style="color: var(--text-muted); margin: 15px 0 25px 0;">Ao conectar com OAuth 2.0, suas pedaladas em Santa Helena acumulam pontos no ranking do clube e destacam seus tempos de subida.</p>
+
+                <div id="stravaStatusArea">
+                    <button id="btnStravaAuth" class="btn-strava">
+                        🧡 Conectar com o Strava API
+                    </button>
+                </div>
+            </div>
+
+            <!-- Segment Leaderboard Card -->
+            <div class="leaderboard-card">
+                <div class="leaderboard-header">
+                    <h4>🏆 Tabela de Classificação do Clube</h4>
+                    <div class="segment-tabs">
+                        <button class="seg-tab active" data-segment="refugio">Subida do Refúgio (1.8 km)</button>
+                        <button class="seg-tab" data-segment="balneario">Sprint do Balneário (3.2 km)</button>
+                    </div>
+                </div>
+
+                <div class="leaderboard-list" id="leaderboardList">
+                    <!-- Renderizado dinamicamente via JS -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Próximos Eventos Section -->
+    <section id="eventos" class="section">
+        <div class="section-title">
+            <span class="badge-tag">Calendário Oficial</span>
+            <h3>Próximos Eventos & Pedais em Grupo</h3>
+            <p>Garanta sua participação nos passeios de cicloturismo e provas de Mountain Bike em Santa Helena.</p>
+        </div>
+
+        <div class="event-filter-bar">
+            <button class="filter-btn active" data-filter="todos">Todos os Eventos</button>
+            <button class="filter-btn" data-filter="Cicloturismo">Cicloturismo</button>
+            <button class="filter-btn" data-filter="Desafio MTB">Desafio MTB</button>
+        </div>
+
+        <div class="events-grid" id="eventsGrid">
+            <!-- Evento 1 -->
+            <div class="event-card" data-category="Cicloturismo">
+                <div class="event-header">
+                    <span class="event-date">📅 15 OUT 2026</span>
+                    <span class="event-category">Cicloturismo</span>
+                </div>
+                <div class="event-body">
+                    <h4>Circuito Terra das Águas - Etapa Santa Helena</h4>
+                    <ul class="event-meta">
+                        <li>📍 <strong>Concentração:</strong> Balneário Terra das Águas</li>
+                        <li>🚴 <strong>Percurso:</strong> 45 km (Trilha & Asfalto)</li>
+                        <li>🥪 <strong>Incluso:</strong> Café da manhã + Ponto de Apoio + Medalha</li>
+                    </ul>
+                    <button class="btn-event open-register-modal" data-event="Circuito Terra das Águas (45 km)">📲 Garantir Inscrição via WhatsApp</button>
+                </div>
+            </div>
+
+            <!-- Evento 2 -->
+            <div class="event-card" data-category="Desafio MTB">
+                <div class="event-header">
+                    <span class="event-date">📅 08 NOV 2026</span>
+                    <span class="event-category">Desafio MTB</span>
+                </div>
+                <div class="event-body">
+                    <h4>Desafio Refúgio Biológico da Itaipu</h4>
+                    <ul class="event-meta">
+                        <li>📍 <strong>Local:</strong> Refúgio Biológico de Santa Helena</li>
+                        <li>🚴 <strong>Percurso:</strong> 60 km (Cross-Country MTB)</li>
+                        <li>🏆 <strong>Premiação:</strong> Troféus para os 5 primeiros por categoria</li>
+                    </ul>
+                    <button class="btn-event open-register-modal" data-event="Desafio Refúgio Biológico (60 km)">📲 Garantir Inscrição via WhatsApp</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galeria de Mídias Extraídas (110 Fotos Curadas) -->
+    <section id="galeria" class="section">
+        <div class="section-title">
+            <span class="badge-tag">Acervo Fotográfico (110+ Fotos Curadas)</span>
+            <h3>Galeria de Mídias dos Pedais</h3>
+            <p>Selecione uma categoria para explorar a história e os momentos marcantes do Ciclismo Santa Helena.</p>
+        </div>
+
+        <!-- Filter Tabs for Albums -->
+        <div class="album-tabs" id="albumTabs">
+            <button class="tab-btn active" data-album="ALL">🌟 Todas as Fotos</button>
+            <button class="tab-btn" data-album="Album_Podios_e_Conquistas">🏆 Pódios & Conquistas</button>
+            <button class="tab-btn" data-album="Album_Cicloturismo_Terra_das_Aguas">🌅 Cicloturismo Terra das Águas</button>
+            <button class="tab-btn" data-album="Album_Trilhas_MTB_Itaipu">🚵 Trilhas MTB Itaipu</button>
+            <button class="tab-btn" data-album="Album_Pedais_Urbanos_e_Familia">👥 Pedais em Família</button>
+            <button class="tab-btn" data-album="Album_Cartazes_e_Divulgacao">📢 Cartazes & Divulgação</button>
+        </div>
+
+        <!-- Dynamic Photo Grid -->
+        <div class="gallery-grid" id="galleryGrid">
+            <!-- Fotos injetadas via JavaScript -->
+        </div>
+
+        <!-- Load More Button -->
+        <div style="text-align: center; margin-top: 40px;">
+            <button id="btnLoadMorePhotos" class="btn-secondary" style="padding: 12px 30px;">➕ Carregar Mais Fotos</button>
+        </div>
+    </section>
+
+    <!-- Contato & Localização -->
+    <section id="contato" class="section">
+        <div class="section-title">
+            <span class="badge-tag">Localização & Contato</span>
+            <h3>Balneário Terra das Águas • Santa Helena - PR</h3>
+            <p>Venha pedalar conosco nas melhores rotas de cicloturismo da Região Oeste do Paraná!</p>
+        </div>
+
+        <div class="contact-card">
+            <div class="contact-info">
+                <p>📍 <strong>Ponto de Encontro:</strong> Balneário Terra das Águas - Santa Helena - PR</p>
+                <p>📧 <strong>E-mail Oficial:</strong> contato@ciclismosantahelena.com.br</p>
+                <p>💬 <strong>Grupo de Whats:</strong> (45) 99999-9999</p>
+            </div>
+            <div class="contact-buttons">
+                <a href="https://share.google/IMACb9wci1RJM1URi" target="_blank" rel="noopener" class="btn-primary">🗺️ Ver Localização no Google Maps</a>
+                <a href="https://wa.me/5545999999999?text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20os%20pedais" target="_blank" rel="noopener" class="btn-secondary">💬 Falar no WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <img src="assets/logo.jpg" alt="Logo Ciclismo Santa Helena" style="height: 40px; border-radius: 50%;">
+                <span>Associação Santa-Helenense de Ciclismo</span>
+            </div>
+            <div class="copyright">
+                © 2026 Ciclismo Santa Helena • Hub de Rotas GPX & App PWA. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lightbox Modal para Fotos -->
+    <div id="lightboxModal" class="lightbox-modal" aria-hidden="true">
+        <span class="lightbox-close" id="lightboxClose">&times;</span>
+        <button class="lightbox-nav prev" id="lightboxPrev" aria-label="Foto Anterior">❮</button>
+        <div class="lightbox-content">
+            <img id="lightboxImg" src="" alt="Ampliação da Foto">
+            <div id="lightboxCaption" class="lightbox-caption"></div>
+        </div>
+        <button class="lightbox-nav next" id="lightboxNext" aria-label="Próxima Foto">❯</button>
+    </div>
+
+    <!-- Modal de Inscrição nos Eventos -->
+    <div id="registerModal" class="modal-overlay" aria-hidden="true">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h4 id="registerModalTitle">📝 Inscrição de Evento</h4>
+                <button class="modal-close" id="registerModalClose">&times;</button>
+            </div>
+            <form id="registerForm" class="modal-form">
+                <div class="form-group">
+                    <label for="regName">Nome Completo</label>
+                    <input type="text" id="regName" placeholder="Ex: João da Silva" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="regPhone">WhatsApp / Celular</label>
+                        <input type="tel" id="regPhone" placeholder="(45) 99999-9999" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="regCity">Cidade / Estado</label>
+                        <input type="text" id="regCity" placeholder="Ex: Santa Helena - PR" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="regCategory">Categoria</label>
+                        <select id="regCategory">
+                            <option value="Turismo / Cicloturismo">Turismo / Cicloturismo</option>
+                            <option value="MTB Sport">MTB Sport</option>
+                            <option value="MTB Elite">MTB Elite</option>
+                            <option value="Passeio Família">Passeio Família</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="regShirt">Tamanho da Camiseta</label>
+                        <select id="regShirt">
+                            <option value="P">Tamanho P</option>
+                            <option value="M" selected>Tamanho M</option>
+                            <option value="G">Tamanho G</option>
+                            <option value="GG">Tamanho GG</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="btn-primary" style="width: 100%; margin-top: 10px;">📲 Enviar Inscrição no WhatsApp</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
+

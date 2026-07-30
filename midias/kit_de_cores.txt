@@ -1,0 +1,35 @@
+===============================================================================
+                 KIT DE CORES E PALETA DA MARCA (CICLISMO SH)
+===============================================================================
+
+🎨 Laranja Neon Ação (Primary CTA)
+   • HEX: #FF5722
+   • RGB: rgb(255, 87, 34)
+   • Aplicação: Botões de ação principal (CTA), destaque de datas e acentos de velocidade
+
+🎨 Amarelo Ouro Superação (Accent)
+   • HEX: #FFC107
+   • RGB: rgb(255, 193, 7)
+   • Aplicação: Estrelas de avaliação, badges de pódio, troféus e destaques numéricos
+
+🎨 Azul Oceano Noturno (Background Dark)
+   • HEX: #0B192C
+   • RGB: rgb(11, 25, 44)
+   • Aplicação: Background principal do site (Dark Mode), cabeçalhos e rodapé
+
+🎨 Verde Floresta Itaipu (Natureza & Trilhas)
+   • HEX: #1E5128
+   • RGB: rgb(30, 81, 40)
+   • Aplicação: Badges de pedais ecológicos, bordas de cards e elementos de trilha MTB
+
+🎨 Branco Puro (Texto & Leitura)
+   • HEX: #FFFFFF
+   • RGB: rgb(255, 255, 255)
+   • Aplicação: Títulos principais e botões secundários
+
+🎨 Cinza Neutro (Subtítulos & Metadados)
+   • HEX: #A0AEC0
+   • RGB: rgb(160, 174, 192)
+   • Aplicação: Textos secundários, descrições e ícones desativados
+
+===============================================================================

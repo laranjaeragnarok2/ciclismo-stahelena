@@ -1,0 +1,74 @@
+{
+    "marca": "Associação Santa-Helenense de Ciclismo (Ciclismo Santa Helena)",
+    "logo_path": "/home/horyu/Projetos/ciclismo/midias/logo/logo_ciclismo_santa_helena.jpg",
+    "paleta_oficial": [
+        {
+            "nome": "Laranja Neon Ação (Primary CTA)",
+            "hex": "#FF5722",
+            "rgb": "rgb(255, 87, 34)",
+            "uso": "Botões de ação principal (CTA), destaque de datas e acentos de velocidade"
+        },
+        {
+            "nome": "Amarelo Ouro Superação (Accent)",
+            "hex": "#FFC107",
+            "rgb": "rgb(255, 193, 7)",
+            "uso": "Estrelas de avaliação, badges de pódio, troféus e destaques numéricos"
+        },
+        {
+            "nome": "Azul Oceano Noturno (Background Dark)",
+            "hex": "#0B192C",
+            "rgb": "rgb(11, 25, 44)",
+            "uso": "Background principal do site (Dark Mode), cabeçalhos e rodapé"
+        },
+        {
+            "nome": "Verde Floresta Itaipu (Natureza & Trilhas)",
+            "hex": "#1E5128",
+            "rgb": "rgb(30, 81, 40)",
+            "uso": "Badges de pedais ecológicos, bordas de cards e elementos de trilha MTB"
+        },
+        {
+            "nome": "Branco Puro (Texto & Leitura)",
+            "hex": "#FFFFFF",
+            "rgb": "rgb(255, 255, 255)",
+            "uso": "Títulos principais e botões secundários"
+        },
+        {
+            "nome": "Cinza Neutro (Subtítulos & Metadados)",
+            "hex": "#A0AEC0",
+            "rgb": "rgb(160, 174, 192)",
+            "uso": "Textos secundários, descrições e ícones desativados"
+        }
+    ],
+    "cores_extraidas_do_logo": [
+        {
+            "hex": "#FFFFFF",
+            "rgb": "rgb(255, 255, 255)",
+            "pixels": 12190
+        },
+        {
+            "hex": "#1B2841",
+            "rgb": "rgb(27, 40, 65)",
+            "pixels": 5368
+        },
+        {
+            "hex": "#70683C",
+            "rgb": "rgb(112, 104, 60)",
+            "pixels": 2706
+        },
+        {
+            "hex": "#B1BF8F",
+            "rgb": "rgb(177, 191, 143)",
+            "pixels": 1067
+        },
+        {
+            "hex": "#FFFFFE",
+            "rgb": "rgb(255, 255, 254)",
+            "pixels": 672
+        },
+        {
+            "hex": "#FEFFFF",
+            "rgb": "rgb(254, 255, 255)",
+            "pixels": 497
+        }
+    ]
+}
