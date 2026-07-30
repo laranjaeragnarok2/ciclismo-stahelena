@@ -547,7 +547,7 @@ ${trkpts}
        8. GALERIA DE MÍDIAS CURADAS & LIGHTBOX MODAL
        ========================================================================== */
     const galleryGrid = document.getElementById('galleryGrid');
-    const albumTabs = document.querySelectorAll('#albumTabs .tab-btn');
+    const albumTabs = document.querySelectorAll('#albumTabs .filter-btn, #albumTabs .tab-btn');
     const btnLoadMorePhotos = document.getElementById('btnLoadMorePhotos');
 
     let allPhotos = [];

@@ -14,17 +14,30 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
     
     <!-- Stylesheets -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#FF5722">
+    <meta name="theme-color" content="#0077FF">
     
     <!-- Leaflet OpenStreetMap CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 </head>
 <body>
+
+    <!-- Topbar Info -->
+    <div class="topbar">
+        <div class="topbar-info">
+            <span>📍 Santa Helena - PR (Balneário Terra das Águas)</span>
+            <span>📞 WhatsApp: (45) 99999-9999</span>
+            <span>⏰ Seg a Sex: 08h - 18h | Sáb: 08h - 12h</span>
+        </div>
+        <div class="topbar-links">
+            <a href="#contato">📍 Ver Localização</a>
+            <a href="https://wa.me/5545999999999" target="_blank">💬 Falar com Vendedor</a>
+        </div>
+    </div>
 
     <!-- Header Navigation -->
     <header id="mainHeader">
@@ -32,20 +45,20 @@
             <img src="assets/logo.jpg" alt="Logo Ciclismo Santa Helena Sports">
             <div class="logo-text">
                 <h1>Ciclismo <span>Santa Helena</span></h1>
-                <span style="font-size: 0.65rem; color: var(--accent-yellow); letter-spacing: 2px; font-weight: 800; display: block; margin-top: -3px;">SPORTS • LOJA & OFICINA</span>
+                <span style="font-size: 0.65rem; color: var(--primary-blue); letter-spacing: 2px; font-weight: 800; display: block; margin-top: -3px;">SPORTS • LOJA & OFICINA</span>
             </div>
         </a>
 
         <nav id="navMenu">
             <ul>
                 <li><a href="#home" class="nav-link active">Início</a></li>
+                <li><a href="#categorias" class="nav-link">Categorias</a></li>
                 <li><a href="#loja" class="nav-link">Bikes & Loja</a></li>
                 <li><a href="#oficina" class="nav-link">Oficina</a></li>
-                <li><a href="#hub-rotas" class="nav-link">Hub de Rotas</a></li>
+                <li><a href="#hub-rotas" class="nav-link">Hub GPX</a></li>
                 <li><a href="#strava" class="nav-link">Strava & KOM</a></li>
                 <li><a href="#eventos" class="nav-link">Eventos</a></li>
                 <li><a href="#galeria" class="nav-link">Galeria</a></li>
-                <li><a href="#contato" class="nav-link">Contato</a></li>
             </ul>
         </nav>
 
@@ -61,44 +74,44 @@
         </div>
     </header>
 
-    <!-- Hero Section (Widescreen Slider) -->
+    <!-- Hero Section (Widescreen Showcase - AllyBike Style) -->
     <section id="home" class="hero-section">
         <div class="hero-slider" id="heroSlider">
-            <!-- Slide 1: Loja & Bikes -->
-            <div class="hero-slide active" style="background-image: linear-gradient(to bottom, rgba(11,25,44,0.65), rgba(11,25,44,0.92)), url('midias/albuns_curados/02_Cicloturismo_Terra_das_Aguas/Album_Cicloturismo_Terra_das_Aguas_02.jpg');">
+            <!-- Slide 1: Mountain Bikes -->
+            <div class="hero-slide active" style="background-image: linear-gradient(to right, rgba(15,23,42,0.85) 30%, rgba(15,23,42,0.3) 100%), url('midias/albuns_curados/02_Cicloturismo_Terra_das_Aguas/Album_Cicloturismo_Terra_das_Aguas_02.jpg');">
                 <div class="hero-content">
-                    <span class="badge-tag">🚲 Loja & Oficina Especializada • Santa Helena - PR</span>
-                    <h2>Sua Loja de <span>Bicicletas & Peças</span></h2>
-                    <p>Encontre as melhores Mountain Bikes, equipamentos profissionais e componentes das melhores marcas do mercado com atendimento especializado.</p>
+                    <span class="hero-tag">⚡ SHOWROOM DE MOUNTAIN BIKES</span>
+                    <h2>MOUNTAIN <span>BIKES 29"</span></h2>
+                    <p>Encontre os melhores modelos de Mountain Bikes das marcas Oggi, Sense e Specialized com condições especiais e garantia oficial.</p>
                     <div class="hero-buttons">
-                        <a href="#loja" class="btn-primary">🛒 Ver Vitrine de Bikes</a>
-                        <a href="#oficina" class="btn-secondary">🛠️ Agendar Oficina</a>
+                        <a href="#loja" class="btn-primary">🛒 EXPLORAR SHOWROOM</a>
+                        <a href="#oficina" class="btn-secondary">🛠️ AGENDAR REVISÃO</a>
                     </div>
                 </div>
             </div>
 
             <!-- Slide 2: Oficina Mecânica -->
-            <div class="hero-slide" style="background-image: linear-gradient(to bottom, rgba(11,25,44,0.65), rgba(11,25,44,0.92)), url('midias/albuns_curados/03_Trilhas_MTB_Itaipu/Album_Trilhas_MTB_Itaipu_06.jpg');">
+            <div class="hero-slide" style="background-image: linear-gradient(to right, rgba(15,23,42,0.85) 30%, rgba(15,23,42,0.3) 100%), url('midias/albuns_curados/03_Trilhas_MTB_Itaipu/Album_Trilhas_MTB_Itaipu_06.jpg');">
                 <div class="hero-content">
-                    <span class="badge-tag">🛠️ Manutenção & Alta Performance</span>
-                    <h2>Oficina Mecânica <span>Especializada</span></h2>
-                    <p>Revisão geral, sangria de freios hidráulicos, regulagem de câmbios eletrônicos e manutenção de suspensões com ferramental de alta precisão.</p>
+                    <span class="hero-tag">🛠️ MANUTENÇÃO & ALTA PERFORMANCE</span>
+                    <h2>OFICINA <span>ESPECIALIZADA</span></h2>
+                    <p>Revisão geral preventiva, sangria de freios hidráulicos, conversão tubeless e regulagem de suspensão com ferramental profissional.</p>
                     <div class="hero-buttons">
-                        <a href="#oficina" class="btn-primary">🛠️ Conhecer Serviços</a>
-                        <a href="#hub-rotas" class="btn-secondary">🗺️ Ver Rotas da Região</a>
+                        <a href="#oficina" class="btn-primary">🛠️ CONHECER SERVIÇOS</a>
+                        <a href="#hub-rotas" class="btn-secondary">🗺️ VER ROTAS GPX</a>
                     </div>
                 </div>
             </div>
 
             <!-- Slide 3: Hub & Pódios -->
-            <div class="hero-slide" style="background-image: linear-gradient(to bottom, rgba(11,25,44,0.65), rgba(11,25,44,0.92)), url('midias/albuns_curados/01_Podios_e_Conquistas/Album_Podios_e_Conquistas_05.jpg');">
+            <div class="hero-slide" style="background-image: linear-gradient(to right, rgba(15,23,42,0.85) 30%, rgba(15,23,42,0.3) 100%), url('midias/albuns_curados/01_Podios_e_Conquistas/Album_Podios_e_Conquistas_05.jpg');">
                 <div class="hero-content">
-                    <span class="badge-tag">🏆 Equipe & Comunidade de Ciclismo</span>
-                    <h2>Hub de Rotas & <span>Eventos Esportivos</span></h2>
-                    <p>Faça download de arquivos GPX para GPS, participe dos nossos pedais em grupo e venha pedalar com a equipe Ciclismo Santa Helena Sports.</p>
+                    <span class="hero-tag">🏆 EQUIPE & EVENTOS LOCAIS</span>
+                    <h2>HUB DE ROTAS & <span>CICLOTURISMO</span></h2>
+                    <p>Baixe percursos GPX para GPS, dispute segmentos no Strava e participe dos pedais em grupo de Santa Helena - PR.</p>
                     <div class="hero-buttons">
-                        <a href="#hub-rotas" class="btn-primary">🗺️ Explorar Rotas GPX</a>
-                        <a href="#galeria" class="btn-secondary">📸 Ver Galeria de Fotos</a>
+                        <a href="#hub-rotas" class="btn-primary">🗺️ EXPLORAR ROTAS GPX</a>
+                        <a href="#galeria" class="btn-secondary">📸 VER GALERIA DE FOTOS</a>
                     </div>
                 </div>
             </div>
@@ -116,14 +129,71 @@
         </div>
     </section>
 
+    <!-- Grid 3-Colunas de Categorias Visuais (Inspiração AllyBike Reference) -->
+    <section id="categorias" class="categories-section">
+        <div class="categories-grid">
+            <!-- Card 1: Mountain Bikes -->
+            <div class="cat-banner-card" style="background-image: url('midias/albuns_curados/03_Trilhas_MTB_Itaipu/Album_Trilhas_MTB_Itaipu_02.jpg');">
+                <div class="cat-banner-content">
+                    <h3 class="cat-banner-title">MOUNTAIN BIKES</h3>
+                    <ul class="cat-banner-list">
+                        <li>Cross-Country MTB</li>
+                        <li>Trail & Enduro</li>
+                        <li>Downhill MTB</li>
+                        <li>E-Bikes de Trilha</li>
+                    </ul>
+                    <a href="#loja" class="btn-cat-view">VER TODAS ❯</a>
+                </div>
+            </div>
 
+            <!-- Card 2: Road & Speed Bikes -->
+            <div class="cat-banner-card" style="background-image: url('midias/albuns_curados/02_Cicloturismo_Terra_das_Aguas/Album_Cicloturismo_Terra_das_Aguas_05.jpg');">
+                <div class="cat-banner-content">
+                    <h3 class="cat-banner-title">ROAD & SPEED BIKES</h3>
+                    <ul class="cat-banner-list">
+                        <li>Bicicletas Road / Speed</li>
+                        <li>Gravel Bikes</li>
+                        <li>Cyclocross</li>
+                        <li>Triathlon & TT</li>
+                    </ul>
+                    <a href="#loja" class="btn-cat-view">VER TODAS ❯</a>
+                </div>
+            </div>
 
-    <!-- Seção de Loja & Vitrine de Produtos (Inspiração Version 2) -->
-    <section id="loja" class="section">
+            <!-- Card 3: Urban & Cicloturismo -->
+            <div class="cat-banner-card" style="background-image: url('midias/albuns_curados/04_Pedais_Urbanos_e_Familia/Album_Pedais_Urbanos_e_Familia_03.jpg');">
+                <div class="cat-banner-content">
+                    <h3 class="cat-banner-title">URBAN & CICLOTURISMO</h3>
+                    <ul class="cat-banner-list">
+                        <li>Bikes Híbridas & Ubanas</li>
+                        <li>Cicloturismo de Viagem</li>
+                        <li>Bikes Infantis & Juvenil</li>
+                        <li>Acessórios para Passeio</li>
+                    </ul>
+                    <a href="#loja" class="btn-cat-view">VER TODAS ❯</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brands Sponsor Bar (AllyBike Style) -->
+    <div class="brands-bar">
+        <div class="brands-container">
+            <span class="brand-logo-item">SHIMANO</span>
+            <span class="brand-logo-item" style="color: var(--primary-blue);">OGGI BIKES</span>
+            <span class="brand-logo-item">SPECIALIZED</span>
+            <span class="brand-logo-item" style="color: #0077FF;">SENSE BIKES</span>
+            <span class="brand-logo-item">SRAM</span>
+            <span class="brand-logo-item">GIRO</span>
+        </div>
+    </div>
+
+    <!-- Seção de Loja & Vitrine de Produtos (Cards Limpos com Sombra Subtil) -->
+    <section id="loja" class="section" style="background: var(--bg-slate);">
         <div class="section-title">
-            <span class="badge-tag">Showroom & Vitrine</span>
-            <h3>Bicicletas, Peças & Acessórios</h3>
-            <p>Confira os destaques do nosso estoque em Santa Helena. Clique em qualquer produto para solicitar orçamento ou comprar pelo WhatsApp.</p>
+            <span class="section-title-tag">SHOWROOM & PRODUTOS</span>
+            <h3>Bicicletas & Componentes em Destaque</h3>
+            <p>Confira os destaques em estoque na nossa loja física em Santa Helena - PR. Clique para cotar via WhatsApp.</p>
         </div>
 
         <div class="store-filter-bar">
@@ -133,165 +203,158 @@
             <button class="filter-btn" data-store-filter="Acessorios">Acessórios & Capacetes</button>
         </div>
 
-        <div class="events-grid" id="storeGrid">
+        <div class="products-grid" id="storeGrid">
             <!-- Produto 1 -->
-            <div class="event-card product-card" data-category="MTB">
-                <div class="event-header">
-                    <span class="event-date" style="background: var(--forest-green);">EM ESTOQUE</span>
-                    <span class="event-category">Mountain Bike</span>
+            <div class="product-card" data-category="MTB">
+                <span class="product-card-badge">EM ESTOQUE</span>
+                <div class="product-img-wrapper">
+                    <img src="midias/albuns_curados/03_Trilhas_MTB_Itaipu/Album_Trilhas_MTB_Itaipu_02.jpg" alt="Bicicleta MTB Oggi Big Wheel 29">
                 </div>
-                <div class="event-body">
-                    <h4>Bicicleta MTB Oggi Big Wheel 29"</h4>
-                    <ul class="event-meta">
-                        <li>⚙️ <strong>Grupo:</strong> Shimano Deore 12 Velocidades</li>
-                        <li>⛰️ <strong>Suspensão:</strong> Ar com Trava no Guidão</li>
-                        <li>🛡️ <strong>Garantia:</strong> Vitalícia de Quadro Oggi</li>
-                    </ul>
-                    <div style="font-family: var(--font-heading); font-size: 1.6rem; color: var(--accent-yellow); font-weight: 800; margin-bottom: 15px;">
-                        R$ 4.990,00 <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: normal;">ou 10x sem juros</span>
+                <div class="product-info">
+                    <div>
+                        <span class="product-category">MOUNTAIN BIKE</span>
+                        <h4 class="product-title">Bicicleta MTB Oggi Big Wheel 29"</h4>
+                        <div class="product-rating">⭐⭐⭐⭐⭐ <span>(4.9/5)</span></div>
                     </div>
-                    <a href="https://wa.me/5545999999999?text=Olá!%20Gostaria%20de%20informações%20sobre%20a%20Bicicleta%20MTB%20Oggi%20Big%20Wheel%2029" target="_blank" class="btn-event" style="background: var(--primary-orange); color: white;">💬 Cotar / Comprar no WhatsApp</a>
+                    <div>
+                        <div class="product-price">
+                            R$ 4.990,00 <span>ou 10x sem juros no cartão</span>
+                        </div>
+                        <a href="https://wa.me/5545999999999?text=Olá!%20Gostaria%20de%20informações%20sobre%20a%20Bicicleta%20MTB%20Oggi%20Big%20Wheel%2029" target="_blank" class="btn-buy-whatsapp">💬 COTAR NO WHATSAPP</a>
+                    </div>
                 </div>
             </div>
 
             <!-- Produto 2 -->
-            <div class="event-card product-card" data-category="MTB">
-                <div class="event-header">
-                    <span class="event-date" style="background: var(--forest-green);">LANÇAMENTO</span>
-                    <span class="event-category">Mountain Bike</span>
+            <div class="product-card" data-category="MTB">
+                <span class="product-card-badge" style="background: var(--primary-blue);">LANÇAMENTO</span>
+                <div class="product-img-wrapper">
+                    <img src="midias/albuns_curados/02_Cicloturismo_Terra_das_Aguas/Album_Cicloturismo_Terra_das_Aguas_05.jpg" alt="Bicicleta Sense Fun Evo 29">
                 </div>
-                <div class="event-body">
-                    <h4>Bicicleta Sense Fun Evo 29"</h4>
-                    <ul class="event-meta">
-                        <li>⚙️ <strong>Grupo:</strong> Shimano Altus 2x9 Velocidades</li>
-                        <li>🛑 <strong>Freios:</strong> Hidráulicos Shimano</li>
-                        <li>🚴 <strong>Uso:</strong> Trilhas e Cicloturismo</li>
-                    </ul>
-                    <div style="font-family: var(--font-heading); font-size: 1.6rem; color: var(--accent-yellow); font-weight: 800; margin-bottom: 15px;">
-                        R$ 3.490,00 <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: normal;">ou 10x sem juros</span>
+                <div class="product-info">
+                    <div>
+                        <span class="product-category">MOUNTAIN BIKE</span>
+                        <h4 class="product-title">Bicicleta Sense Fun Evo 29"</h4>
+                        <div class="product-rating">⭐⭐⭐⭐⭐ <span>(5.0/5)</span></div>
                     </div>
-                    <a href="https://wa.me/5545999999999?text=Olá!%20Gostaria%20de%20informações%20sobre%20a%20Bicicleta%20Sense%20Fun%20Evo%2029" target="_blank" class="btn-event" style="background: var(--primary-orange); color: white;">💬 Cotar / Comprar no WhatsApp</a>
+                    <div>
+                        <div class="product-price">
+                            R$ 3.490,00 <span>ou 10x sem juros no cartão</span>
+                        </div>
+                        <a href="https://wa.me/5545999999999?text=Olá!%20Gostaria%20de%20informações%20sobre%20a%20Bicicleta%20Sense%20Fun%20Evo%2029" target="_blank" class="btn-buy-whatsapp">💬 COTAR NO WHATSAPP</a>
+                    </div>
                 </div>
             </div>
 
             <!-- Produto 3 -->
-            <div class="event-card product-card" data-category="Acessorios">
-                <div class="event-header">
-                    <span class="event-date" style="background: var(--primary-orange);">DESTAQUE</span>
-                    <span class="event-category">Segurança</span>
+            <div class="product-card" data-category="Acessorios">
+                <span class="product-card-badge" style="background: var(--badge-orange);">SEGURANÇA</span>
+                <div class="product-img-wrapper">
+                    <img src="midias/albuns_curados/05_Cartazes_e_Divulgacao/Album_Cartazes_e_Divulgacao_01.jpg" alt="Capacete Giro Agilis MIPS">
                 </div>
-                <div class="event-body">
-                    <h4>Capacete Profissional Giro Agilis MIPS</h4>
-                    <ul class="event-meta">
-                        <li>🛡️ <strong>Proteção:</strong> Sistema MIPS Anti-Impacto</li>
-                        <li>🌬️ <strong>Ventilação:</strong> 32 Entradas de Ar</li>
-                        <li>📏 <strong>Tamanhos:</strong> M (55-59cm) / G (59-63cm)</li>
-                    </ul>
-                    <div style="font-family: var(--font-heading); font-size: 1.6rem; color: var(--accent-yellow); font-weight: 800; margin-bottom: 15px;">
-                        R$ 680,00 <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: normal;">em até 6x</span>
+                <div class="product-info">
+                    <div>
+                        <span class="product-category">ACESSÓRIOS & CAPACETES</span>
+                        <h4 class="product-title">Capacete Profissional Giro Agilis MIPS</h4>
+                        <div class="product-rating">⭐⭐⭐⭐⭐ <span>(4.8/5)</span></div>
                     </div>
-                    <a href="https://wa.me/5545999999999?text=Olá!%20Tenho%20interesse%20no%20Capacete%20Giro%20Agilis%20MIPS" target="_blank" class="btn-event" style="background: var(--primary-orange); color: white;">💬 Cotar / Comprar no WhatsApp</a>
+                    <div>
+                        <div class="product-price">
+                            R$ 680,00 <span>em até 6x sem juros</span>
+                        </div>
+                        <a href="https://wa.me/5545999999999?text=Olá!%20Tenho%20interesse%20no%20Capacete%20Giro%20Agilis%20MIPS" target="_blank" class="btn-buy-whatsapp">💬 COTAR NO WHATSAPP</a>
+                    </div>
                 </div>
             </div>
 
             <!-- Produto 4 -->
-            <div class="event-card product-card" data-category="Pecas">
-                <div class="event-header">
-                    <span class="event-date" style="background: var(--forest-green);">OFICINA</span>
-                    <span class="event-category">Componentes</span>
+            <div class="product-card" data-category="Pecas">
+                <span class="product-card-badge">COMPONENTES</span>
+                <div class="product-img-wrapper">
+                    <img src="midias/albuns_curados/03_Trilhas_MTB_Itaipu/Album_Trilhas_MTB_Itaipu_06.jpg" alt="Kit Selante Tubeless Stans">
                 </div>
-                <div class="event-body">
-                    <h4>Kit Selante Tubeless NoTubes Stans 473ml</h4>
-                    <ul class="event-meta">
-                        <li>🛠️ <strong>Vedação:</strong> Furos de até 6.5mm instantaneamente</li>
-                        <li>🚴 <strong>Uso:</strong> 2 a 7 meses por aplicação</li>
-                        <li>🌱 <strong>Fórmula:</strong> Não corrosiva e ecológica</li>
-                    </ul>
-                    <div style="font-family: var(--font-heading); font-size: 1.6rem; color: var(--accent-yellow); font-weight: 800; margin-bottom: 15px;">
-                        R$ 145,00
+                <div class="product-info">
+                    <div>
+                        <span class="product-category">MANUTENÇÃO & PEÇAS</span>
+                        <h4 class="product-title">Kit Selante Tubeless NoTubes 473ml</h4>
+                        <div class="product-rating">⭐⭐⭐⭐⭐ <span>(5.0/5)</span></div>
                     </div>
-                    <a href="https://wa.me/5545999999999?text=Olá!%20Gostaria%20de%20comprar%20o%20Kit%20Selante%20Tubeless" target="_blank" class="btn-event" style="background: var(--primary-orange); color: white;">💬 Cotar / Comprar no WhatsApp</a>
+                    <div>
+                        <div class="product-price">
+                            R$ 145,00 <span>à vista ou PIX</span>
+                        </div>
+                        <a href="https://wa.me/5545999999999?text=Olá!%20Gostaria%20de%20comprar%20o%20Kit%20Selante%20Tubeless" target="_blank" class="btn-buy-whatsapp">💬 COTAR NO WHATSAPP</a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Seção de Oficina Mecânica Especializada (Inspiração Version 2) -->
-    <section id="oficina" class="section" style="background: rgba(15, 32, 56, 0.4); border-top: 1px solid var(--bg-card-border); border-bottom: 1px solid var(--bg-card-border);">
+    <!-- Banner de Ofertas & Oficina (Full-Width Electric Blue Banner) -->
+    <section class="promo-accent-banner">
+        <div class="promo-banner-content">
+            <span class="promo-banner-tag">🛠️ OFICINA MECÂNICA ESPECIALIZADA</span>
+            <h2>SUA BIKE PRONTA <span>PARA QUALQUER TRILHA</span></h2>
+            <p>Faça uma revisão preventiva geral na sua bicicleta com profissionais certificados, lavagem detalhada com produtos biodegradáveis e regulagem de alta precisão.</p>
+            <a href="#oficina" class="btn-secondary" style="background: white; color: var(--primary-blue); font-weight: 800;">AGENDAR SERVIÇO AGORA ❯</a>
+        </div>
+    </section>
+
+    <!-- Seção de Serviços da Oficina -->
+    <section id="oficina" class="section">
         <div class="section-title">
-            <span class="badge-tag" style="background: rgba(30, 81, 40, 0.2); color: #4CAF50; border-color: rgba(76, 175, 80, 0.4);">Oficina Mecânica Especializada</span>
-            <h3>Manutenção & Serviços Profissionais</h3>
-            <p>Mecanicamente preparada para garantir que sua bike rode suave e segura nas trilhas e no asfalto.</p>
+            <span class="section-title-tag">OFICINA MECÂNICA</span>
+            <h3>Serviços de Manutenção & Alta Performance</h3>
+            <p>Garantia de segurança e máximo desempenho para sua pedalada nas estradas e trilhas da região.</p>
         </div>
 
-        <div class="events-grid">
+        <div class="services-grid">
             <!-- Serviço 1 -->
-            <div class="event-card">
-                <div class="event-header" style="background: linear-gradient(135deg, rgba(30, 81, 40, 0.4), rgba(11, 25, 44, 0.95));">
-                    <span class="event-date" style="background: #1E5128;">MANUTENÇÃO</span>
-                    <span class="event-category">Revisão Geral</span>
+            <div class="service-card">
+                <div>
+                    <div class="service-icon">🛠️</div>
+                    <h4>Revisão Geral Preventiva</h4>
+                    <p>Desmontagem completa, limpeza ultrassônica da transmissão, lubrificação de rolamentos, regulagem de marchas e centragem de rodas.</p>
                 </div>
-                <div class="event-body">
-                    <h4>🛠️ Pacote Revisão Geral Preventiva</h4>
-                    <ul class="event-meta">
-                        <li>🧼 Lavagem detalhada com produtos biodegradáveis</li>
-                        <li>⚙️ Desmontagem, limpeza e lubrificação da transmissão</li>
-                        <li>🔧 Regulagem de marchas, freios e centragem de rodas</li>
-                    </ul>
-                    <a href="https://wa.me/5545999999999?text=Olá!%20Gostaria%20de%20agendar%20uma%20Revisão%20Geral%20Preventiva" target="_blank" class="btn-event" style="background: #1E5128; color: white; border: none;">📅 Agendar Serviço de Oficina</a>
-                </div>
+                <a href="https://wa.me/5545999999999?text=Olá!%20Gostaria%20de%20agendar%20uma%20Revisão%20Geral%20Preventiva" target="_blank" class="btn-primary" style="font-size: 0.82rem;">📅 AGENDAR SERVIÇO</a>
             </div>
 
             <!-- Serviço 2 -->
-            <div class="event-card">
-                <div class="event-header" style="background: linear-gradient(135deg, rgba(30, 81, 40, 0.4), rgba(11, 25, 44, 0.95));">
-                    <span class="event-date" style="background: #1E5128;">HIGH PERFORMANCE</span>
-                    <span class="event-category">Freios & Tubeless</span>
+            <div class="service-card">
+                <div>
+                    <div class="service-icon">🩸</div>
+                    <h4>Sangria de Freios & Tubeless</h4>
+                    <p>Troca completa de fluido mineral/DOT para freios hidráulicos e instalação de fita de aro, válvulas e selante de alta resistência.</p>
                 </div>
-                <div class="event-body">
-                    <h4>🩸 Sangria de Freios & Conversão Tubeless</h4>
-                    <ul class="event-meta">
-                        <li>💧 Troca de fluido mineral/DOT e sangria completa</li>
-                        <li>🛞 Instalação de fita de aro, válvulas e selante Tubeless</li>
-                        <li>🔒 Elimine furos em percursos de MTB</li>
-                    </ul>
-                    <a href="https://wa.me/5545999999999?text=Olá!%20Gostaria%20de%20agendar%20Sangria%20de%20Freio%20ou%20Tubeless" target="_blank" class="btn-event" style="background: #1E5128; color: white; border: none;">📅 Agendar Serviço de Oficina</a>
-                </div>
+                <a href="https://wa.me/5545999999999?text=Olá!%20Gostaria%20de%20agendar%20Sangria%20de%20Freio%20ou%20Tubeless" target="_blank" class="btn-primary" style="font-size: 0.82rem;">📅 AGENDAR SERVIÇO</a>
             </div>
 
             <!-- Serviço 3 -->
-            <div class="event-card">
-                <div class="event-header" style="background: linear-gradient(135deg, rgba(30, 81, 40, 0.4), rgba(11, 25, 44, 0.95));">
-                    <span class="event-date" style="background: #1E5128;">SUSPENSÃO</span>
-                    <span class="event-category">Mecânica Avançada</span>
+            <div class="service-card">
+                <div>
+                    <div class="service-icon">🌀</div>
+                    <h4>Revisão de Suspensões</h4>
+                    <p>Manutenção técnica preventiva para garfos de ar/óleo RockShox, Suntour e Fox com substituição de reparos e lubrificante original.</p>
                 </div>
-                <div class="event-body">
-                    <h4>🌀 Revisão de Suspensões & Amortecedores</h4>
-                    <ul class="event-meta">
-                        <li>🛢️ Troca de óleos hidráulicos e reparos O-ring originais</li>
-                        <li>🧽 Limpeza interna das bengalas e lubrificação de retentores</li>
-                        <li>⚙️ Ajuste de SAG e retorno personalizado</li>
-                    </ul>
-                    <a href="https://wa.me/5545999999999?text=Olá!%20Gostaria%20de%20agendar%20Revisão%20de%20Suspensão" target="_blank" class="btn-event" style="background: #1E5128; color: white; border: none;">📅 Agendar Serviço de Oficina</a>
-                </div>
+                <a href="https://wa.me/5545999999999?text=Olá!%20Gostaria%20de%20agendar%20Revisão%20de%20Suspensão" target="_blank" class="btn-primary" style="font-size: 0.82rem;">📅 AGENDAR SERVIÇO</a>
             </div>
         </div>
     </section>
 
-    <!-- Hub de Rotas Section (Leaflet Map + GPX Viewer + Community Reviews) -->
-    <section id="hub-rotas" class="section">
+    <!-- Hub de Rotas Section (Leaflet Map + GPX Viewer) -->
+    <section id="hub-rotas" class="section" style="background: var(--bg-slate);">
         <div class="section-title">
-            <span class="badge-tag">Cycling Hub & Maps</span>
+            <span class="section-title-tag">CYCLING HUB & MAPS</span>
             <h3>Hub de Rotas & Percursos GPX</h3>
-            <p>Explore no mapa interativo as rotas oficiais de Santa Helena, faça download do arquivo GPX ou cadastre o seu percurso para a comunidade.</p>
+            <p>Explore no mapa interativo as rotas oficiais de Santa Helena, faça download do arquivo GPX ou cadastre a sua rota para os demais ciclistas.</p>
         </div>
 
         <div class="routes-layout">
-            <!-- Interative Map Container -->
+            <!-- Interactive Map Container -->
             <div class="map-wrapper">
                 <div class="map-header">
                     <h4>📍 Mapa Interativo de Percursos de Santa Helena</h4>
-                    <span class="map-status">Clique em um marcador ou rota para ver altimetria e detalhes</span>
+                    <span class="map-status">Clique em um marcador ou rota para ver detalhes</span>
                 </div>
                 <div id="routeMap" class="leaflet-map-container"></div>
             </div>
@@ -299,7 +362,7 @@
             <!-- Route Builder Form -->
             <div class="route-builder-card">
                 <h4>🗺️ Cadastrar Nova Rota no Hub</h4>
-                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">Adicione o percurso do seu treino ou pedal em grupo para os ciclistas avaliarem.</p>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">Adicione o percurso do seu treino para a comunidade.</p>
                 
                 <form id="routeForm" class="route-form">
                     <div class="form-group">
@@ -312,7 +375,7 @@
                             <input type="number" id="routeDistance" placeholder="Ex: 45" step="0.1" required>
                         </div>
                         <div class="form-group">
-                            <label for="routeElevation">Altimetria / Ganho (m)</label>
+                            <label for="routeElevation">Altimetria (m)</label>
                             <input type="number" id="routeElevation" placeholder="Ex: 650" required>
                         </div>
                         <div class="form-group">
@@ -326,18 +389,18 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="routeDescription">Descrição & Pontos de Água / Apoio</label>
+                        <label for="routeDescription">Descrição & Pontos de Água</label>
                         <textarea id="routeDescription" rows="3" placeholder="Descreva os destaques da rota, estado da estrada e pontos de apoio com água..."></textarea>
                     </div>
-                    <button type="submit" class="btn-primary" style="width: 100%;">🚀 Publicar Rota no Hub</button>
+                    <button type="submit" class="btn-primary" style="width: 100%;">🚀 PUBLICAR ROTA NO HUB</button>
                 </form>
             </div>
         </div>
 
         <!-- Lista de Rotas em Destaque -->
-        <h4 class="sub-heading">Rotas em Destaque Avaliadas pela Comunidade</h4>
+        <h4 style="font-family: var(--font-heading); font-size: 1.6rem; font-weight: 800; text-align: center; margin: 40px 0 25px 0;">Rotas em Destaque Avaliadas pela Comunidade</h4>
         
-        <div class="events-grid" id="routesList">
+        <div class="products-grid" id="routesList">
             <!-- Rotas serão renderizadas dinamicamente via JS -->
         </div>
     </section>
@@ -345,16 +408,16 @@
     <!-- Strava Integration & Leaderboard Section -->
     <section id="strava" class="section strava-section">
         <div class="section-title">
-            <span class="badge-tag strava-badge">Conexão Strava API</span>
+            <span class="section-title-tag" style="color: var(--strava-orange);">CONEXÃO STRAVA API</span>
             <h3>Ranking de Segmentos Locais (KOM / QOM)</h3>
-            <p>Conecte sua conta do Strava para sincronizar treinos, disputar os segmentos da região e validar sua presença nos eventos oficiais.</p>
+            <p>Conecte sua conta do Strava para sincronizar seus treinos e disputar a classificação nos segmentos de Santa Helena.</p>
         </div>
 
         <div class="strava-container">
             <div class="strava-connect-card">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/Strava_Logo.svg" alt="Strava Logo" class="strava-logo">
-                <h4>Conecte seu perfil do Strava</h4>
-                <p style="color: var(--text-muted); margin: 15px 0 25px 0;">Ao conectar com OAuth 2.0, suas pedaladas em Santa Helena acumulam pontos no ranking do clube e destacam seus tempos de subida.</p>
+                <h4 style="font-family: var(--font-heading); font-size: 1.3rem; margin-bottom: 10px;">Conecte seu perfil do Strava</h4>
+                <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 25px;">Acumule pontos nos segmentos oficiais e conquiste seu lugar no topo da tabela.</p>
 
                 <div id="stravaStatusArea">
                     <button id="btnStravaAuth" class="btn-strava">
@@ -366,7 +429,7 @@
             <!-- Segment Leaderboard Card -->
             <div class="leaderboard-card">
                 <div class="leaderboard-header">
-                    <h4>🏆 Tabela de Classificação do Clube</h4>
+                    <h4>🏆 Classificação do Clube</h4>
                     <div class="segment-tabs">
                         <button class="seg-tab active" data-segment="refugio">Subida do Refúgio (1.8 km)</button>
                         <button class="seg-tab" data-segment="balneario">Sprint do Balneário (3.2 km)</button>
@@ -383,9 +446,9 @@
     <!-- Próximos Eventos Section -->
     <section id="eventos" class="section">
         <div class="section-title">
-            <span class="badge-tag">Calendário Oficial</span>
+            <span class="section-title-tag">CALENDÁRIO OFICIAL</span>
             <h3>Próximos Eventos & Pedais em Grupo</h3>
-            <p>Garanta sua participação nos passeios de cicloturismo e provas de Mountain Bike em Santa Helena.</p>
+            <p>Participe dos passeios organizados pelo Ciclismo Santa Helena Sports.</p>
         </div>
 
         <div class="event-filter-bar">
@@ -394,114 +457,87 @@
             <button class="filter-btn" data-filter="Desafio MTB">Desafio MTB</button>
         </div>
 
-        <div class="events-grid" id="eventsGrid">
+        <div class="products-grid" id="eventsGrid">
             <!-- Evento 1 -->
-            <div class="event-card" data-category="Cicloturismo">
-                <div class="event-header">
-                    <span class="event-date">📅 15 OUT 2026</span>
-                    <span class="event-category">Cicloturismo</span>
-                </div>
-                <div class="event-body">
-                    <h4>Circuito Terra das Águas - Etapa Santa Helena</h4>
-                    <ul class="event-meta">
-                        <li>📍 <strong>Concentração:</strong> Balneário Terra das Águas</li>
-                        <li>🚴 <strong>Percurso:</strong> 45 km (Trilha & Asfalto)</li>
-                        <li>🥪 <strong>Incluso:</strong> Café da manhã + Ponto de Apoio + Medalha</li>
-                    </ul>
-                    <button class="btn-event open-register-modal" data-event="Circuito Terra das Águas (45 km)">📲 Garantir Inscrição via WhatsApp</button>
-                </div>
+            <div class="product-card" data-category="Cicloturismo" style="padding: 24px;">
+                <span class="product-card-badge">15 OUT 2026</span>
+                <h4 style="font-family: var(--font-heading); font-size: 1.3rem; margin: 15px 0 10px 0;">Circuito Terra das Águas - Etapa Santa Helena</h4>
+                <ul style="list-style: none; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">
+                    <li>📍 <strong>Concentração:</strong> Balneário Terra das Águas</li>
+                    <li>🚴 <strong>Percurso:</strong> 45 km (Trilha & Asfalto)</li>
+                    <li>🥪 <strong>Incluso:</strong> Café da manhã + Ponto de Apoio</li>
+                </ul>
+                <button class="btn-buy-whatsapp open-register-modal" data-event="Circuito Terra das Águas (45 km)">📲 INSCRIÇÃO VIA WHATSAPP</button>
             </div>
 
             <!-- Evento 2 -->
-            <div class="event-card" data-category="Desafio MTB">
-                <div class="event-header">
-                    <span class="event-date">📅 08 NOV 2026</span>
-                    <span class="event-category">Desafio MTB</span>
-                </div>
-                <div class="event-body">
-                    <h4>Desafio Refúgio Biológico da Itaipu</h4>
-                    <ul class="event-meta">
-                        <li>📍 <strong>Local:</strong> Refúgio Biológico de Santa Helena</li>
-                        <li>🚴 <strong>Percurso:</strong> 60 km (Cross-Country MTB)</li>
-                        <li>🏆 <strong>Premiação:</strong> Troféus para os 5 primeiros por categoria</li>
-                    </ul>
-                    <button class="btn-event open-register-modal" data-event="Desafio Refúgio Biológico (60 km)">📲 Garantir Inscrição via WhatsApp</button>
-                </div>
+            <div class="product-card" data-category="Desafio MTB" style="padding: 24px;">
+                <span class="product-card-badge" style="background: var(--primary-blue);">08 NOV 2026</span>
+                <h4 style="font-family: var(--font-heading); font-size: 1.3rem; margin: 15px 0 10px 0;">Desafio Refúgio Biológico da Itaipu</h4>
+                <ul style="list-style: none; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">
+                    <li>📍 <strong>Local:</strong> Refúgio Biológico de Santa Helena</li>
+                    <li>🚴 <strong>Percurso:</strong> 60 km (Cross-Country MTB)</li>
+                    <li>🏆 <strong>Premiação:</strong> Troféus para os 5 primeiros</li>
+                </ul>
+                <button class="btn-buy-whatsapp open-register-modal" data-event="Desafio Refúgio Biológico (60 km)">📲 INSCRIÇÃO VIA WHATSAPP</button>
             </div>
         </div>
     </section>
 
-    <!-- Galeria de Mídias Extraídas (110 Fotos Curadas) -->
-    <section id="galeria" class="section">
+    <!-- Galeria de Mídias (110 Fotos Curadas) -->
+    <section id="galeria" class="section" style="background: var(--bg-slate);">
         <div class="section-title">
-            <span class="badge-tag">Acervo Fotográfico (110+ Fotos Curadas)</span>
-            <h3>Galeria de Mídias dos Pedais & Eventos</h3>
-            <p>Selecione uma categoria para explorar a história e os momentos marcantes do Ciclismo Santa Helena Sports.</p>
+            <span class="section-title-tag">ACERVO FOTOGRÁFICO</span>
+            <h3>Galeria de Mídias & Momentos</h3>
+            <p>Selecione uma categoria para visualizar as mídias da nossa equipe e dos nossos pedais.</p>
         </div>
 
-        <!-- Filter Tabs for Albums -->
-        <div class="album-tabs" id="albumTabs">
-            <button class="tab-btn active" data-album="ALL">🌟 Todas as Fotos</button>
-            <button class="tab-btn" data-album="Album_Podios_e_Conquistas">🏆 Pódios & Conquistas</button>
-            <button class="tab-btn" data-album="Album_Cicloturismo_Terra_das_Aguas">🌅 Cicloturismo Terra das Águas</button>
-            <button class="tab-btn" data-album="Album_Trilhas_MTB_Itaipu">🚵 Trilhas MTB Itaipu</button>
-            <button class="tab-btn" data-album="Album_Pedais_Urbanos_e_Familia">👥 Pedais em Família</button>
-            <button class="tab-btn" data-album="Album_Cartazes_e_Divulgacao">📢 Cartazes & Divulgação</button>
+        <div class="store-filter-bar" id="albumTabs">
+            <button class="filter-btn active" data-album="ALL">🌟 Todas as Fotos</button>
+            <button class="filter-btn" data-album="Album_Podios_e_Conquistas">🏆 Pódios & Conquistas</button>
+            <button class="filter-btn" data-album="Album_Cicloturismo_Terra_das_Aguas">🌅 Cicloturismo Terra das Águas</button>
+            <button class="filter-btn" data-album="Album_Trilhas_MTB_Itaipu">🚵 Trilhas MTB Itaipu</button>
+            <button class="filter-btn" data-album="Album_Pedais_Urbanos_e_Familia">👥 Pedais em Família</button>
+            <button class="filter-btn" data-album="Album_Cartazes_e_Divulgacao">📢 Cartazes & Divulgação</button>
         </div>
 
-        <!-- Dynamic Photo Grid -->
         <div class="gallery-grid" id="galleryGrid">
-            <!-- Fotos injetadas via JavaScript -->
+            <!-- Fotos injetadas via JS -->
         </div>
 
-        <!-- Load More Button -->
         <div style="text-align: center; margin-top: 40px;">
-            <button id="btnLoadMorePhotos" class="btn-secondary" style="padding: 12px 30px;">➕ Carregar Mais Fotos</button>
-        </div>
-    </section>
-
-    <!-- Seção Marcas & Parceiros (Inspiração Version 2) -->
-    <section class="section" style="padding: 50px 8%; background: rgba(11,25,44,0.9); border-top: 1px solid var(--bg-card-border);">
-        <div style="text-align: center; margin-bottom: 25px;">
-            <span style="color: var(--text-muted); font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px;">Marcas & Componentes Atendidos na Loja & Oficina</span>
-        </div>
-        <div style="display: flex; justify-content: center; align-items: center; gap: 40px; flex-wrap: wrap; opacity: 0.8;">
-            <span style="font-family: var(--font-heading); font-size: 1.5rem; font-weight: 900; color: #FFF;">SHIMANO</span>
-            <span style="font-family: var(--font-heading); font-size: 1.5rem; font-weight: 900; color: #FF5722;">OGGI BIKES</span>
-            <span style="font-family: var(--font-heading); font-size: 1.5rem; font-weight: 900; color: #FFF;">SRAM</span>
-            <span style="font-family: var(--font-heading); font-size: 1.5rem; font-weight: 900; color: #FFC107;">SENSE BIKES</span>
-            <span style="font-family: var(--font-heading); font-size: 1.5rem; font-weight: 900; color: #FFF;">GIRO</span>
+            <button id="btnLoadMorePhotos" class="btn-secondary" style="background: var(--bg-white); color: var(--text-dark); border-color: var(--border-light);">➕ CARREGAR MAIS FOTOS</button>
         </div>
     </section>
 
     <!-- Contato & Localização -->
     <section id="contato" class="section">
         <div class="section-title">
-            <span class="badge-tag">Localização & Contato</span>
-            <h3>Loja & Oficina • Santa Helena - PR</h3>
-            <p>Venha nos visitar, fazer uma revisão na sua bike ou tirar dúvidas sobre novos equipamentos!</p>
+            <span class="section-title-tag">LOCALIZAÇÃO & CONTATO</span>
+            <h3>Loja Física & Oficina Mecânica</h3>
+            <p>Venha tomar um café conosco, conhecer nossas bicicletas e agendar a manutenção da sua bike!</p>
         </div>
 
         <div class="contact-card">
             <div class="contact-info">
-                <p>📍 <strong>Endereço da Loja:</strong> Santa Helena - PR (Região do Balneário Terra das Águas)</p>
-                <p>📧 <strong>E-mail Oficial:</strong> contato@ciclismosantahelena.com.br</p>
-                <p>💬 <strong>WhatsApp da Loja & Oficina:</strong> (45) 99999-9999</p>
-                <p>⏰ <strong>Horário de Atendimento:</strong> Seg a Sex: 08:00 - 18:00 | Sáb: 08:00 - 12:00</p>
+                <p>📍 <strong>Endereço:</strong> Santa Helena - PR (Próximo ao Balneário Terra das Águas)</p>
+                <p>📧 <strong>E-mail:</strong> contato@ciclismosantahelena.com.br</p>
+                <p>💬 <strong>WhatsApp da Loja:</strong> (45) 99999-9999</p>
+                <p>⏰ <strong>Horário de Atendimento:</strong> Seg a Sex: 08h - 18h | Sáb: 08h - 12h</p>
             </div>
             <div class="contact-buttons">
-                <a href="https://share.google/IMACb9wci1RJM1URi" target="_blank" rel="noopener" class="btn-primary">🗺️ Ver no Google Maps</a>
-                <a href="https://wa.me/5545999999999?text=Olá!%20Gostaria%20de%20falar%20com%20a%20loja/oficina" target="_blank" rel="noopener" class="btn-secondary">💬 Falar no WhatsApp</a>
+                <a href="https://share.google/IMACb9wci1RJM1URi" target="_blank" rel="noopener" class="btn-primary">🗺️ ABRIR NO GOOGLE MAPS</a>
+                <a href="https://wa.me/5545999999999?text=Olá!%20Gostaria%20de%20falar%20com%20a%20loja/oficina" target="_blank" rel="noopener" class="btn-secondary" style="background: var(--bg-slate); color: var(--text-dark); border-color: var(--border-light);">💬 FALAR NO WHATSAPP</a>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Footer Slate Dark -->
     <footer>
         <div class="footer-content">
             <div class="footer-brand">
                 <img src="assets/logo.jpg" alt="Logo Ciclismo Santa Helena Sports" style="height: 40px; border-radius: 50%;">
-                <span>Ciclismo Santa Helena Sports</span>
+                <span>CICLISMO SANTA HELENA SPORTS</span>
             </div>
             <div class="copyright">
                 © 2026 Ciclismo Santa Helena Sports • Loja, Oficina Mecânica & Hub de Rotas GPX. Todos os direitos reservados.
@@ -509,7 +545,7 @@
         </div>
     </footer>
 
-    <!-- Lightbox Modal para Fotos -->
+    <!-- Lightbox Modal -->
     <div id="lightboxModal" class="lightbox-modal" aria-hidden="true">
         <span class="lightbox-close" id="lightboxClose">&times;</span>
         <button class="lightbox-nav prev" id="lightboxPrev" aria-label="Foto Anterior">❮</button>
@@ -562,7 +598,7 @@
                         </select>
                     </div>
                 </div>
-                <button type="submit" class="btn-primary" style="width: 100%; margin-top: 10px;">📲 Enviar Inscrição no WhatsApp</button>
+                <button type="submit" class="btn-primary" style="width: 100%; margin-top: 10px;">📲 ENVIAR INSCRIÇÃO NO WHATSAPP</button>
             </form>
         </div>
     </div>
