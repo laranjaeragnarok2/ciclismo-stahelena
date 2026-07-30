@@ -519,6 +519,31 @@ ${trkpts}
     }
 
     /* ==========================================================================
+       7.1. FILTRAGEM DA VITRINE DE PRODUTOS DA LOJA
+       ========================================================================== */
+    const storeFilterBtns = document.querySelectorAll('.store-filter-bar .filter-btn');
+    const productCards = document.querySelectorAll('#storeGrid .product-card');
+
+    if (storeFilterBtns.length > 0) {
+        storeFilterBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                storeFilterBtns.forEach(b => b.classList.remove('active'));
+                e.target.classList.add('active');
+                const filter = e.target.getAttribute('data-store-filter');
+
+                productCards.forEach(card => {
+                    const cat = card.getAttribute('data-category');
+                    if (filter === 'ALL' || cat === filter) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    }
+
+    /* ==========================================================================
        8. GALERIA DE MÍDIAS CURADAS & LIGHTBOX MODAL
        ========================================================================== */
     const galleryGrid = document.getElementById('galleryGrid');

@@ -626,8 +626,8 @@ nav a.active::after, nav a:hover::after {
     color: white;
 }
 
-/* Event Filter Bar */
-.event-filter-bar {
+/* Event & Store Filter Bar */
+.event-filter-bar, .store-filter-bar {
     display: flex;
     justify-content: center;
     gap: 12px;
