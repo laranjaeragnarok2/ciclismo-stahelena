@@ -2779,6 +2779,68 @@ footer {
     .route-card-buttons .btn-route-action {
         width: 100% !important;
     }
+
+    /* Mobile Carousel Slider for Team (Nossa Equipe) */
+    .team-grid {
+        display: flex !important;
+        overflow-x: auto !important;
+        scroll-snap-type: x mandatory !important;
+        -webkit-overflow-scrolling: touch !important;
+        gap: 14px !important;
+        padding-bottom: 12px !important;
+        scrollbar-width: none !important;
+        width: 100% !important;
+    }
+
+    .team-grid::-webkit-scrollbar {
+        display: none !important;
+    }
+
+    .team-card {
+        flex: 0 0 230px !important;
+        scroll-snap-align: center !important;
+        border-radius: 16px !important;
+    }
+
+    /* Mobile Carousel Slider for Stats (Números da Loja) */
+    .stats-container {
+        display: flex !important;
+        overflow-x: auto !important;
+        scroll-snap-type: x mandatory !important;
+        -webkit-overflow-scrolling: touch !important;
+        gap: 12px !important;
+        padding-bottom: 10px !important;
+        scrollbar-width: none !important;
+        width: 100% !important;
+    }
+
+    .stats-container::-webkit-scrollbar {
+        display: none !important;
+    }
+
+    .achievement-item {
+        flex: 0 0 170px !important;
+        scroll-snap-align: center !important;
+        padding: 16px 12px !important;
+        border-radius: 14px !important;
+    }
+
+    /* Mobile Optimization for Oficina Services Grid */
+    .services-grid {
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+        width: 100% !important;
+    }
+
+    .service-card {
+        padding: 20px 16px !important;
+        border-radius: 16px !important;
+    }
+
+    .service-btn {
+        width: 100% !important;
+        text-align: center !important;
+    }
 }
 
 @media (max-width: 480px) {
