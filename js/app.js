@@ -259,26 +259,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
         allRoutes.forEach((r, idx) => {
             const card = document.createElement('div');
-            card.className = 'product-card';
-            card.style.padding = '22px';
+            card.className = 'product-card route-card-modern';
+            card.style.padding = '24px';
             card.style.display = 'flex';
             card.style.flexDirection = 'column';
-            card.style.justifySpaceBetween = 'space-between';
-
-            const svgBg = `<svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#0077FF" stroke-width="1.5"><polygon points="3 11 9 17 21 5"/></svg>`;
+            card.style.justifyContent = 'space-between';
 
             card.innerHTML = `
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-                    <span style="font-size: 0.78rem; font-weight: 800; color: #FFD700; background: rgba(255,215,0,0.12); padding: 4px 10px; border-radius: 12px; border: 1px solid rgba(255,215,0,0.25);">${r.rating || '★ 5.0 (Nova)'}</span>
-                    <span style="font-size: 0.78rem; font-weight: 800; color: var(--accent-cyan); text-transform: uppercase;">${r.category}</span>
+                <div class="route-header-bar">
+                    <span class="route-rating-chip">${r.rating || '★ 5.0 (Nova)'}</span>
+                    <span class="route-category-chip">${r.category}</span>
                 </div>
-                <h4 style="font-family: var(--font-heading); font-size: 1.2rem; font-weight: 800; color: white; margin-bottom: 12px;">${r.name}</h4>
-                <div style="background: rgba(8, 14, 26, 0.6); padding: 14px; border-radius: 10px; margin-bottom: 16px; border: 1px solid rgba(255,255,255,0.06); font-size: 0.85rem; color: var(--text-slate);">
-                    <p style="margin-bottom: 6px;">⛰️ <strong>Altimetria:</strong> +${r.elevation}m | 📍 <strong>Distância:</strong> ${r.distance} km</p>
-                    <p style="margin-bottom: 6px;">🛣️ <strong>Terreno:</strong> ${r.terrain || r.description || 'Percurso mapeado pela comunidade.'}</p>
-                    ${r.support ? `<p>🥤 <strong>Pontos de Apoio:</strong> ${r.support}</p>` : ''}
+                <h4 class="route-card-title">${r.name}</h4>
+                <div class="route-info-box">
+                    <div class="route-info-row">⛰️ <strong>Altimetria:</strong> +${r.elevation}m &nbsp;•&nbsp; 📍 <strong>Distância:</strong> ${r.distance} km</div>
+                    <div class="route-info-row">🛣️ <strong>Terreno:</strong> ${r.terrain || r.description || 'Percurso mapeado pela comunidade.'}</div>
+                    ${r.support ? `<div class="route-info-row">🥤 <strong>Pontos de Apoio:</strong> ${r.support}</div>` : ''}
                 </div>
-                <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: auto;">
+                <div class="route-card-buttons">
                     <button class="btn-route-action btn-download-gpx" data-index="${idx}">Baixar GPX</button>
                     <button class="btn-route-action btn-open-strava" style="background: linear-gradient(135deg, #FC4C02, #E04300); color: white;">Strava</button>
                 </div>
@@ -395,22 +393,20 @@ ${trkpts}
     /* ==========================================================================
        6. STRAVA OAUTH & LEADERBOARD SYSTEM
        ========================================================================== */
-    const svgAvatarPlaceholder = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="%23FC4C02" stroke-width="2"><circle cx="12" cy="7" r="4"/><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/></svg>`;
-
     const leaderboardData = {
         refugio: [
-            { rank: '🥇', name: 'Lucas "Pedal" Silva', avatar: svgAvatarPlaceholder, time: '4m 12s', speed: '25.7 km/h' },
-            { rank: '🥈', name: 'Mariana Santos', avatar: svgAvatarPlaceholder, time: '4m 35s', speed: '23.5 km/h' },
-            { rank: '🥉', name: 'Carlos Eduardo MTB', avatar: svgAvatarPlaceholder, time: '4m 50s', speed: '22.3 km/h' },
-            { rank: '4º', name: 'Fernanda Oliveira', avatar: svgAvatarPlaceholder, time: '5m 08s', speed: '21.0 km/h' },
-            { rank: '5º', name: 'Gabriel "Tigre" Costa', avatar: svgAvatarPlaceholder, time: '5m 22s', speed: '20.1 km/h' }
+            { rank: '🥇', name: 'Lucas "Pedal" Silva', time: '4m 12s', speed: '25.7 km/h' },
+            { rank: '🥈', name: 'Mariana Santos', time: '4m 35s', speed: '23.5 km/h' },
+            { rank: '🥉', name: 'Carlos Eduardo MTB', time: '4m 50s', speed: '22.3 km/h' },
+            { rank: '4º', name: 'Fernanda Oliveira', time: '5m 08s', speed: '21.0 km/h' },
+            { rank: '5º', name: 'Gabriel "Tigre" Costa', time: '5m 22s', speed: '20.1 km/h' }
         ],
         balneario: [
-            { rank: '🥇', name: 'Gabriel "Tigre" Costa', avatar: svgAvatarPlaceholder, time: '5m 02s', speed: '38.2 km/h' },
-            { rank: '🥈', name: 'Lucas "Pedal" Silva', avatar: svgAvatarPlaceholder, time: '5m 15s', speed: '36.6 km/h' },
-            { rank: '🥉', name: 'Rodrigo "Veloz" Lima', avatar: svgAvatarPlaceholder, time: '5m 28s', speed: '35.1 km/h' },
-            { rank: '4º', name: 'Mariana Santos', avatar: svgAvatarPlaceholder, time: '5m 45s', speed: '33.4 km/h' },
-            { rank: '5º', name: 'André Becker', avatar: svgAvatarPlaceholder, time: '6m 01s', speed: '31.9 km/h' }
+            { rank: '🥇', name: 'Gabriel "Tigre" Costa', time: '5m 02s', speed: '38.2 km/h' },
+            { rank: '🥈', name: 'Lucas "Pedal" Silva', time: '5m 15s', speed: '36.6 km/h' },
+            { rank: '🥉', name: 'Rodrigo "Veloz" Lima', time: '5m 28s', speed: '35.1 km/h' },
+            { rank: '4º', name: 'Mariana Santos', time: '5m 45s', speed: '33.4 km/h' },
+            { rank: '5º', name: 'André Becker', time: '6m 01s', speed: '31.9 km/h' }
         ]
     };
 
@@ -428,7 +424,9 @@ ${trkpts}
             div.innerHTML = `
                 <div class="athlete-info">
                     <span class="athlete-rank">${item.rank}</span>
-                    <img src="${item.avatar}" alt="${item.name}" class="athlete-avatar">
+                    <div class="athlete-avatar-badge">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FC4C02" stroke-width="2"><circle cx="12" cy="7" r="4"/><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/></svg>
+                    </div>
                     <div>
                         <div class="athlete-name">${item.name}</div>
                         <div class="athlete-meta">Velocidade Média: ${item.speed}</div>
@@ -525,7 +523,7 @@ ${trkpts}
 
             const text = `Olá!%20Gostaria%20de%20confirmar%20minha%20inscrição%20no%20*${encodeURIComponent(selectedEventName)}*:%0A%0A👤%20*Nome:*%20${encodeURIComponent(name)}%0A📱%20*WhatsApp:*%20${encodeURIComponent(phone)}%0A📍%20*Cidade:*%20${encodeURIComponent(city)}%0A🚴%20*Categoria:*%20${encodeURIComponent(category)}%0A👕%20*Camiseta:*%20${encodeURIComponent(shirt)}`;
 
-            window.open(`https://wa.me/5545999999999?text=${text}`, '_blank');
+            window.open(`https://wa.me/5564993026839?text=${text}`, '_blank');
             if (registerModal) registerModal.classList.remove('show');
             registerForm.reset();
         });
@@ -565,7 +563,7 @@ ${trkpts}
 
     let allPhotos = [];
     let filteredPhotos = [];
-    let visibleCount = 6;
+    let visibleCount = 12;
     let currentPhotoIndex = 0;
 
     // Função para traduzir album_id para pasta do repositório
@@ -581,11 +579,21 @@ ${trkpts}
         return `midias/albuns_curados/${folder}/${item.filename}`;
     }
 
+    function getPhotoTitle(photo, idx) {
+        const titlesMap = {
+            'Album_Podios_e_Conquistas': 'Pódio & Conquistas',
+            'Album_Cicloturismo_Terra_das_Aguas': 'Pedal Cicloturismo',
+            'Album_Trilhas_MTB_Itaipu': 'Trilha MTB Sudoeste',
+            'Album_Pedais_Urbanos_e_Familia': 'Pedal em Família',
+            'Album_Cartazes_e_Divulgacao': 'Evento Ciclismo'
+        };
+        const baseTitle = titlesMap[photo.album_id] || 'Registro de Pedal';
+        return `${baseTitle} #${(idx % 20) + 1}`;
+    }
+
     function loadCatalogData() {
-        // 1. Carrega imediatamente o acervo pré-gerado para rendering instantâneo sem travamento
         generateFallbackPhotos();
 
-        // 2. Tenta atualizar com o acervo completo em background com timeout de segurança
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), 1500);
 
@@ -602,7 +610,7 @@ ${trkpts}
                 }
             })
             .catch(err => {
-                console.log('⚡ Usando acervo otimizado local (resposta instantânea).');
+                console.log('⚡ Usando acervo otimizado local.');
             });
     }
 
@@ -643,7 +651,8 @@ ${trkpts}
                 <img src="${path}" alt="${photo.album_title || 'Foto Ciclismo Santa Helena'}" loading="lazy" onerror="this.src='assets/logo.jpg'">
                 <div class="gallery-card-overlay">
                     <span class="gallery-card-tag">${photo.album_title || 'Acervo Oficial'}</span>
-                    <div class="gallery-card-title">${photo.filename}</div>
+                    <div class="gallery-card-title">${getPhotoTitle(photo, idx)}</div>
+                    <span class="gallery-zoom-chip">🔍 AMPLIAR</span>
                 </div>
             `;
 
@@ -655,6 +664,9 @@ ${trkpts}
         });
 
         if (btnLoadMorePhotos) {
+            btnLoadMorePhotos.style.display = visibleCount >= filteredPhotos.length ? 'none' : 'inline-block';
+        }
+    }dMorePhotos) {
             btnLoadMorePhotos.style.display = visibleCount >= filteredPhotos.length ? 'none' : 'inline-block';
         }
     }

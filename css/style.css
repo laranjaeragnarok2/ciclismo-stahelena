@@ -685,7 +685,7 @@ nav a:hover, nav a.active {
     opacity: 0.95;
 }
 
-/* Category Banners Grid (3 Columns) */
+/* Category Banners Grid (3 Equal Columns & Proportions) */
 .categories-section {
     padding: 60px 8%;
     background: var(--bg-surface);
@@ -695,75 +695,95 @@ nav a:hover, nav a.active {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
+    align-items: stretch;
 }
 
 .cat-banner-card {
     position: relative;
-    border-radius: 14px;
+    border-radius: 16px;
     overflow: hidden;
-    height: 380px;
+    height: 420px;
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     padding: 30px;
     color: white;
-    border: 1px solid var(--border-card);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
 .cat-banner-card::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba(7, 11, 20, 0.95) 0%, rgba(7, 11, 20, 0.4) 60%, rgba(7, 11, 20, 0.1) 100%);
+    background: linear-gradient(to top, rgba(7, 11, 20, 0.95) 0%, rgba(7, 11, 20, 0.45) 60%, rgba(7, 11, 20, 0.15) 100%);
 }
 
 .cat-banner-card:hover {
     transform: translateY(-6px);
     border-color: var(--primary-blue);
-    box-shadow: var(--shadow-blue-glow);
+    box-shadow: 0 15px 35px rgba(0, 119, 255, 0.35);
 }
 
 .cat-banner-content {
     position: relative;
     z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100%;
+    width: 100%;
 }
 
 .cat-banner-title {
     font-family: var(--font-heading);
-    font-size: 1.6rem;
+    font-size: 1.55rem;
     font-weight: 900;
     text-transform: uppercase;
     margin-bottom: 12px;
+    min-height: 52px;
+    display: flex;
+    align-items: flex-end;
+    line-height: 1.15;
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.8);
 }
 
 .cat-banner-list {
     list-style: none;
-    margin-bottom: 18px;
+    margin-bottom: 22px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 6px;
 }
 
 .cat-banner-list li {
     font-size: 0.88rem;
     color: var(--text-slate);
-    margin-bottom: 4px;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
 }
 
 .cat-banner-list li::before {
     content: '• ';
     color: var(--accent-orange);
+    font-weight: bold;
 }
 
 .btn-cat-view {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
+    width: 100%;
     gap: 8px;
     background: linear-gradient(135deg, var(--primary-blue), #00A6FF);
     color: white;
-    padding: 12px 26px;
-    border-radius: 25px;
+    padding: 13px 20px;
+    border-radius: 30px;
     text-decoration: none;
     font-family: var(--font-heading);
     font-weight: 800;
@@ -772,11 +792,12 @@ nav a:hover, nav a.active {
     letter-spacing: 0.5px;
     box-shadow: 0 4px 15px rgba(0, 119, 255, 0.4);
     transition: all 0.3s ease;
+    margin-top: auto;
 }
 
 .btn-cat-view:hover {
     background: linear-gradient(135deg, var(--accent-orange), #FF7043);
-    box-shadow: 0 8px 22px rgba(255, 87, 34, 0.5);
+    box-shadow: 0 8px 25px rgba(255, 87, 34, 0.55);
     transform: translateY(-2px);
 }
 
@@ -881,15 +902,15 @@ nav a:hover, nav a.active {
 
 /* Promo Accent Banner Fix */
 .promo-accent-banner {
-    background: linear-gradient(135deg, rgba(11, 46, 141, 0.95), rgba(0, 119, 255, 0.85), rgba(15, 23, 42, 0.98)), url('midias/albuns_curados/03_Trilhas_MTB_Itaipu/Album_Trilhas_MTB_Itaipu_06.jpg');
+    background: linear-gradient(135deg, rgba(6, 12, 24, 0.88) 0%, rgba(11, 46, 141, 0.85) 50%, rgba(6, 12, 24, 0.92) 100%), url('https://i.pinimg.com/1200x/bd/bf/ca/bdbfca8dd36038b52a3a5d02c6613d92.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    padding: 70px 8%;
+    padding: 85px 8%;
     position: relative;
     border-top: 1px solid rgba(0, 119, 255, 0.3);
     border-bottom: 1px solid rgba(0, 119, 255, 0.3);
-    box-shadow: inset 0 0 50px rgba(0,0,0,0.5);
+    box-shadow: inset 0 0 50px rgba(0,0,0,0.6);
     text-align: center;
     width: 100%;
 }
@@ -1517,6 +1538,18 @@ nav a:hover, nav a.active {
     color: var(--accent-cyan);
 }
 
+.athlete-avatar-badge {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(252, 76, 2, 0.12);
+    border: 1.5px solid #FC4C02;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
 .athlete-avatar {
     width: 40px;
     height: 40px;
@@ -1555,44 +1588,46 @@ nav a:hover, nav a.active {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .event-card-modern:hover {
+    border-color: rgba(0, 119, 255, 0.5);
     transform: translateY(-6px);
-    border-color: var(--primary-blue);
-    box-shadow: 0 16px 35px rgba(0, 119, 255, 0.25);
+    box-shadow: 0 15px 35px rgba(0, 119, 255, 0.2);
 }
 
 .event-card-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 18px;
+    margin-bottom: 16px;
 }
 
 .event-date-chip {
-    font-family: var(--font-heading);
-    font-weight: 900;
-    font-size: 0.8rem;
-    background: linear-gradient(135deg, var(--accent-orange), #E64A19);
-    color: white;
-    padding: 6px 14px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: #FFD700;
+    background: rgba(255, 215, 0, 0.12);
+    padding: 4px 12px;
     border-radius: 20px;
-    letter-spacing: 0.5px;
-    box-shadow: 0 4px 12px rgba(255, 87, 34, 0.3);
+    border: 1px solid rgba(255, 215, 0, 0.25);
 }
 
 .event-date-chip.blue {
-    background: linear-gradient(135deg, var(--primary-blue), #00A6FF);
-    box-shadow: 0 4px 12px rgba(0, 119, 255, 0.3);
+    color: var(--accent-cyan);
+    background: rgba(56, 189, 248, 0.12);
+    border-color: rgba(56, 189, 248, 0.25);
 }
 
 .event-tag {
     font-size: 0.75rem;
-    font-weight: 700;
-    color: var(--accent-cyan);
+    font-weight: 800;
+    color: var(--accent-orange);
     text-transform: uppercase;
+}
+
+.event-tag.blue {
+    color: var(--accent-cyan);
 }
 
 .event-card-modern h4 {
@@ -1601,18 +1636,13 @@ nav a:hover, nav a.active {
     font-weight: 800;
     color: white;
     margin-bottom: 16px;
-    line-height: 1.35;
 }
 
 .event-details-list {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin-bottom: 24px;
-    padding: 14px;
-    background: rgba(8, 14, 26, 0.6);
-    border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    margin-bottom: 22px;
 }
 
 .event-detail-item {
@@ -1631,7 +1661,9 @@ nav a:hover, nav a.active {
     width: 100%;
     text-align: center;
     font-size: 0.84rem;
-}/* Curated Photo Gallery Mosaic & Card Styles */
+}
+
+/* Curated Photo Gallery Mosaic & Card Styles */
 .gallery-mosaic-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -1640,13 +1672,14 @@ nav a:hover, nav a.active {
 
 .gallery-card {
     position: relative;
-    border-radius: 14px;
+    border-radius: 16px;
     overflow: hidden;
-    height: 240px;
+    height: 260px;
     background: rgba(14, 22, 38, 0.8);
-    border: 1px solid var(--border-card);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     cursor: pointer;
-    transition: all 0.35 cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
 }
 
 .gallery-card img {
@@ -1654,7 +1687,7 @@ nav a:hover, nav a.active {
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: transform 0.5s ease;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .gallery-card:hover img {
@@ -1664,35 +1697,52 @@ nav a:hover, nav a.active {
 .gallery-card-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba(6, 12, 24, 0.92) 0%, rgba(6, 12, 24, 0.3) 60%, transparent 100%);
-    padding: 18px;
+    background: linear-gradient(to top, rgba(6, 12, 24, 0.95) 0%, rgba(6, 12, 24, 0.4) 60%, transparent 100%);
+    padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     opacity: 0.95;
-    transition: opacity 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .gallery-card:hover .gallery-card-overlay {
     opacity: 1;
+    background: linear-gradient(to top, rgba(0, 119, 255, 0.85) 0%, rgba(6, 12, 24, 0.45) 60%, transparent 100%);
 }
 
 .gallery-card-tag {
     font-size: 0.75rem;
     font-weight: 800;
-    color: var(--accent-cyan);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 4px;
+    color: #FFD700;
+    background: rgba(255, 215, 0, 0.15);
+    padding: 4px 10px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    display: inline-block;
+    margin-bottom: 8px;
+    width: fit-content;
 }
 
 .gallery-card-title {
-    font-size: 0.85rem;
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: 800;
     color: white;
-    font-weight: 600;
+    margin-bottom: 6px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+}
+
+.gallery-zoom-chip {
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: var(--accent-cyan);
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
 }
 
 .gallery-more-box {
