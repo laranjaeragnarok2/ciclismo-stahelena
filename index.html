@@ -4,17 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ciclismo Santa Helena Sports - Loja, Oficina & Hub de Rotas</title>
-    <meta name="description" content="Loja de Bicicletas, Oficina Mecânica Especializada, Hub de rotas GPX, integração Strava, eventos e galeria do Ciclismo Santa Helena Sports em Santa Helena - PR.">
+    <meta name="description" content="Loja de Bicicletas, Oficina Mecânica Especializada, Hub de rotas GPX, integração Strava, eventos e galeria do Ciclismo Santa Helena Sports em Santa Helena - GO.">
     
     <!-- Open Graph / Meta tags -->
     <meta property="og:title" content="Ciclismo Santa Helena Sports - Loja, Oficina & Hub de Rotas">
     <meta property="og:description" content="Venda de bicicletas, peças, acessórios, serviços de oficina especializada e hub de rotas GPX no Balneário Terra das Águas.">
     <meta property="og:image" content="assets/logo.jpg">
     
-    <!-- Google Fonts -->
+    <!-- High Performance Preconnects & Preloads -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://unpkg.com">
+    <link rel="preconnect" href="https://i.pinimg.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://i.pinimg.com">
+
+    <!-- Preload LCP Hero Image -->
+    <link rel="preload" as="image" href="midias/albuns_curados/02_Cicloturismo_Terra_das_Aguas/Album_Cicloturismo_Terra_das_Aguas_02.jpg" fetchpriority="high">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
     
     <!-- Stylesheets -->
     <link rel="stylesheet" href="css/style.css">
@@ -43,8 +53,9 @@
       }
     </script>
     
-    <!-- Leaflet OpenStreetMap CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <!-- Non-Blocking Leaflet OpenStreetMap CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"></noscript>
 </head>
 <body>
 
@@ -222,7 +233,7 @@
     <section id="sobre" class="section">
         <div class="about-grid">
             <div class="about-img-box">
-                <img src="midias/albuns_curados/02_Cicloturismo_Terra_das_Aguas/Album_Cicloturismo_Terra_das_Aguas_01.jpg" alt="Fachada Real da Loja Ciclismo Santa Helena Sports em Santa Helena de Goiás - GO" style="box-shadow: 0 20px 40px rgba(0, 119, 255, 0.3); border: 2px solid var(--primary-blue);">
+                <img src="midias/albuns_curados/02_Cicloturismo_Terra_das_Aguas/Album_Cicloturismo_Terra_das_Aguas_01.jpg" alt="Fachada Real da Loja Ciclismo Santa Helena Sports em Santa Helena de Goiás - GO" width="600" height="400" loading="lazy" decoding="async" style="box-shadow: 0 20px 40px rgba(0, 119, 255, 0.3); border: 2px solid var(--primary-blue);">
             </div>
             <div class="about-text-content">
                 <span class="section-title-tag">SOBRE A CICLISMO SANTA HELENA SPORTS</span>
@@ -1033,7 +1044,7 @@
             <!-- Coluna 1: Sobre a Loja & Redes Sociais -->
             <div class="footer-col">
                 <div class="footer-brand">
-                    <img src="assets/logo.jpg" alt="Logo Ciclismo Santa Helena Sports" class="footer-logo">
+                    <img src="assets/logo.jpg" alt="Logo Ciclismo Santa Helena Sports" width="160" height="60" loading="lazy" decoding="async" class="footer-logo">
                     <h4>SANTA HELENA - GO</h4>
                 </div>
                 <p>Loja de bicicletas, oficina mecânica de alta performance e hub de rotas GPX no Sudoeste Goiano.</p>
