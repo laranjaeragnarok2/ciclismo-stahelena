@@ -290,7 +290,63 @@ nav a:hover, nav a.active {
     border-radius: 2px;
 }
 
-/* Eye-Candy Buttons System */
+/* Premium Eye-Candy Buttons System with Light Sweep Beam Animation */
+.btn-primary,
+.btn-orange,
+.btn-secondary,
+.btn-pwa,
+.btn-buy-whatsapp,
+.btn-route-action,
+.btn-banner-action,
+.btn-strava-official,
+.btn-submit-route,
+.filter-btn {
+    position: relative;
+    overflow: hidden !important;
+    z-index: 1;
+}
+
+.btn-primary::before,
+.btn-orange::before,
+.btn-secondary::before,
+.btn-pwa::before,
+.btn-buy-whatsapp::before,
+.btn-route-action::before,
+.btn-banner-action::before,
+.btn-strava-official::before,
+.btn-submit-route::before,
+.filter-btn::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -75%;
+    width: 50%;
+    height: 200%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.45),
+        transparent
+    );
+    transform: rotate(25deg);
+    transition: all 0.75s cubic-bezier(0.19, 1, 0.22, 1);
+    pointer-events: none;
+    z-index: 2;
+}
+
+.btn-primary:hover::before,
+.btn-orange:hover::before,
+.btn-secondary:hover::before,
+.btn-pwa:hover::before,
+.btn-buy-whatsapp:hover::before,
+.btn-route-action:hover::before,
+.btn-banner-action:hover::before,
+.btn-strava-official:hover::before,
+.btn-submit-route:hover::before,
+.filter-btn:hover::before {
+    left: 125%;
+}
+
 .btn-primary {
     background: linear-gradient(135deg, var(--primary-blue), #00A6FF);
     color: white;
@@ -313,8 +369,9 @@ nav a:hover, nav a.active {
 }
 
 .btn-primary:hover {
-    transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 14px 35px rgba(0, 119, 255, 0.55);
+    transform: translateY(-3px) scale(1.025);
+    box-shadow: 0 14px 35px rgba(0, 119, 255, 0.65);
+    filter: brightness(1.08);
 }
 
 .btn-orange {
@@ -339,8 +396,9 @@ nav a:hover, nav a.active {
 }
 
 .btn-orange:hover {
-    transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 14px 35px rgba(255, 87, 34, 0.6);
+    transform: translateY(-3px) scale(1.025);
+    box-shadow: 0 14px 35px rgba(255, 87, 34, 0.65);
+    filter: brightness(1.08);
 }
 
 .btn-secondary {
