@@ -259,11 +259,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         allRoutes.forEach((r, idx) => {
             const card = document.createElement('div');
-            card.className = 'product-card route-card-modern';
-            card.style.padding = '24px';
-            card.style.display = 'flex';
-            card.style.flexDirection = 'column';
-            card.style.justifyContent = 'space-between';
+            card.className = 'route-card-modern';
 
             card.innerHTML = `
                 <div class="route-header-bar">
@@ -271,14 +267,28 @@ document.addEventListener('DOMContentLoaded', () => {
                     <span class="route-category-chip">${r.category}</span>
                 </div>
                 <h4 class="route-card-title">${r.name}</h4>
-                <div class="route-info-box">
-                    <div class="route-info-row">⛰️ <strong>Altimetria:</strong> +${r.elevation}m &nbsp;•&nbsp; 📍 <strong>Distância:</strong> ${r.distance} km</div>
-                    <div class="route-info-row">🛣️ <strong>Terreno:</strong> ${r.terrain || r.description || 'Percurso mapeado pela comunidade.'}</div>
-                    ${r.support ? `<div class="route-info-row">🥤 <strong>Pontos de Apoio:</strong> ${r.support}</div>` : ''}
+                <div class="route-stats-grid">
+                    <div class="route-stat-box">
+                        <span class="route-stat-label">⛰️ Altimetria</span>
+                        <span class="route-stat-val">+${r.elevation}m</span>
+                    </div>
+                    <div class="route-stat-box">
+                        <span class="route-stat-label">📍 Distância</span>
+                        <span class="route-stat-val">${r.distance} km</span>
+                    </div>
+                    <div class="route-stat-box full-width">
+                        <span class="route-stat-label">🛣️ Terreno</span>
+                        <span class="route-stat-val text-muted">${r.terrain || r.description || 'Estradas de Chão / Asfalto'}</span>
+                    </div>
+                    ${r.support ? `
+                    <div class="route-stat-box full-width">
+                        <span class="route-stat-label">🥤 Ponto de Apoio</span>
+                        <span class="route-stat-val text-muted">${r.support}</span>
+                    </div>` : ''}
                 </div>
                 <div class="route-card-buttons">
-                    <button class="btn-route-action btn-download-gpx" data-index="${idx}">Baixar GPX</button>
-                    <button class="btn-route-action btn-open-strava" style="background: linear-gradient(135deg, #FC4C02, #E04300); color: white;">Strava</button>
+                    <button class="btn-route-action btn-download-gpx" data-index="${idx}">📥 BAIXAR GPX</button>
+                    <button class="btn-route-action btn-open-strava">🧡 STRAVA</button>
                 </div>
             `;
             routesList.appendChild(card);

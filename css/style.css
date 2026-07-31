@@ -2064,24 +2064,189 @@ footer {
 }
 
 .social-link {
-    width: 38px;
-    height: 38px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     display: flex;
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    font-size: 1.05rem;
+    color: #FFFFFF !important;
+    fill: #FFFFFF !important;
+    stroke: #FFFFFF !important;
     transition: all 0.3s ease;
+}
+
+.social-link svg {
+    color: #FFFFFF !important;
+    fill: #FFFFFF !important;
+    stroke: #FFFFFF !important;
+    width: 18px;
+    height: 18px;
 }
 
 .social-link:hover {
     background: var(--primary-blue);
     border-color: var(--primary-blue);
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 119, 255, 0.4);
+    transform: translateY(-3px) scale(1.08);
+    box-shadow: 0 6px 20px rgba(0, 119, 255, 0.5);
+}
+
+.social-link:hover svg {
+    color: #FFFFFF !important;
+    fill: #FFFFFF !important;
+    stroke: #FFFFFF !important;
+}
+
+/* High-UX Route Cards Styling */
+.route-card-modern {
+    background: rgba(14, 22, 38, 0.85);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 18px;
+    padding: 26px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+.route-card-modern:hover {
+    transform: translateY(-6px);
+    border-color: rgba(0, 119, 255, 0.5);
+    box-shadow: 0 18px 40px rgba(0, 119, 255, 0.25);
+    background: rgba(18, 28, 48, 0.9);
+}
+
+.route-header-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.route-rating-chip {
+    font-size: 0.78rem;
+    font-weight: 800;
+    color: #FFD700;
+    background: rgba(255, 215, 0, 0.12);
+    padding: 5px 12px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    box-shadow: 0 2px 8px rgba(255, 215, 0, 0.15);
+}
+
+.route-category-chip {
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: var(--accent-cyan);
+    background: rgba(56, 189, 248, 0.12);
+    padding: 5px 12px;
+    border-radius: 20px;
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    text-transform: uppercase;
+}
+
+.route-card-title {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    font-weight: 900;
+    color: white;
+    margin-bottom: 18px;
+    line-height: 1.3;
+}
+
+.route-stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 22px;
+}
+
+.route-stat-box {
+    background: rgba(6, 12, 24, 0.7);
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.route-stat-box.full-width {
+    grid-column: span 2;
+}
+
+.route-stat-label {
+    font-size: 0.74rem;
+    font-weight: 700;
+    color: var(--accent-cyan);
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+
+.route-stat-val {
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: white;
+}
+
+.route-stat-val.text-muted {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-slate);
+}
+
+.route-card-buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: auto;
+}
+
+.route-card-buttons .btn-route-action {
+    flex: 1;
+    padding: 13px 18px;
+    border-radius: 25px;
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.btn-download-gpx {
+    background: linear-gradient(135deg, var(--primary-blue), #00A6FF);
+    color: white;
+    box-shadow: 0 4px 15px rgba(0, 119, 255, 0.4);
+}
+
+.btn-download-gpx:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 119, 255, 0.6);
+}
+
+.btn-open-strava {
+    background: linear-gradient(135deg, #FC4C02, #E04300);
+    color: white;
+    box-shadow: 0 4px 15px rgba(252, 76, 2, 0.4);
+}
+
+.btn-open-strava:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(252, 76, 2, 0.6);
 }
 
 .footer-col h4 {
