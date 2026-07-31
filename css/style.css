@@ -2345,24 +2345,80 @@ footer {
 
     header {
         padding: 14px 5%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #btnInstallApp,
+    .btn-pwa {
+        display: none !important;
+    }
+
+    .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 0;
+    }
+
+    .hamburger-btn {
+        display: flex !important;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 44px;
+        height: 44px;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        gap: 5px;
+        padding: 8px;
+    }
+
+    .hamburger-btn:hover,
+    .hamburger-btn.active {
+        background: rgba(0, 119, 255, 0.2);
+        border-color: var(--primary-blue);
+    }
+
+    .hamburger-btn .bar {
+        width: 22px;
+        height: 2px;
+        background-color: #FFFFFF;
+        border-radius: 2px;
+        transition: all 0.3s ease;
+    }
+
+    .hamburger-btn.active .bar:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+
+    .hamburger-btn.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger-btn.active .bar:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
     }
 
     nav {
         position: fixed;
-        top: 70px;
+        top: 72px;
         left: 0;
         right: 0;
         background: rgba(6, 12, 24, 0.98);
         backdrop-filter: blur(25px);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+        border-bottom: 1px solid rgba(0, 119, 255, 0.3);
         padding: 24px 5%;
         display: none;
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.9);
         z-index: 9999;
     }
 
     nav.show {
-        display: block;
+        display: block !important;
     }
 
     nav ul {
@@ -2376,14 +2432,21 @@ footer {
     }
 
     nav ul li a {
-        font-size: 1rem;
-        padding: 10px 20px;
+        font-size: 1.05rem;
+        font-weight: 700;
+        padding: 12px 20px;
         width: 100%;
         text-align: center;
+        color: white;
+        display: block;
+        border-radius: 10px;
+        transition: all 0.3s ease;
     }
 
-    .hamburger-btn {
-        display: flex;
+    nav ul li a:hover,
+    nav ul li a.active {
+        background: rgba(0, 119, 255, 0.15);
+        color: var(--accent-cyan);
     }
 
     .hero-slide {
