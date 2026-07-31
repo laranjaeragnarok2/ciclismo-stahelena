@@ -266,14 +266,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     <ul class="event-meta">
                         <li>⛰️ <strong>Altimetria:</strong> +${r.elevation}m</li>
                         <li>🛣️ <strong>Terreno:</strong> ${r.terrain || r.description || 'Percurso mapeado pela comunidade.'}</li>
-                        ${r.support ? `<li>🥤 <strong>Pontos de Apoio:</strong> ${r.support}</li>` : ''}
-                    </ul>
-                    <div style="background: rgba(255,255,255,0.05); padding: 10px; border-radius: 10px; margin-bottom: 15px; font-size: 0.85rem;">
-                        <span style="color: var(--accent-yellow); font-weight: bold;">${r.comment || 'Nenhuma avaliação cadastrada ainda.'}</span>
+                        ${r.support ? `<li>🥤 <strong>Pontos de Apoio:</strong> ${r.su                    <div style="background: rgba(255,255,255,0.06); padding: 12px; border-radius: 10px; margin-bottom: 18px; border: 1px solid rgba(255,255,255,0.1); font-size: 0.85rem;">
+                        <span style="color: #FFD700; font-weight: bold;">${r.comment || 'Nenhuma avaliação cadastrada ainda.'}</span>
                     </div>
-                    <div style="display: flex; gap: 10px;">
-                        <button class="btn-event btn-download-gpx" data-index="${idx}">📥 Baixar GPX</button>
-                        <button class="btn-event btn-open-strava" style="background: #FC4C02; color: white; border: none;">🧡 Abrir Strava</button>
+                    <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                        <button class="btn-route-action btn-download-gpx" data-index="${idx}">📥 Baixar GPX</button>
+                        <button class="btn-route-action btn-open-strava" style="background: linear-gradient(135deg, #FC4C02, #E04300); color: white;">🧡 Abrir Strava</button>
                     </div>
                 </div>
             `;
@@ -291,7 +289,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         document.querySelectorAll('.btn-open-strava').forEach(btn => {
             btn.addEventListener('click', () => {
-                alert('🧡 Redirecionando para o clube Ciclismo Santa Helena no Strava...');
                 window.open('https://www.strava.com/clubs', '_blank');
             });
         });
@@ -300,9 +297,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Função de geração e download de arquivo GPX real
     function downloadGPX(route) {
         const coords = route.coords || [
-            [-24.8586, -54.3338],
-            [-24.8450, -54.3200],
-            [-24.8300, -54.3000]
+            [-17.8142, -50.5969],
+            [-17.8000, -50.5800],
+            [-17.7850, -50.5600]
         ];
 
         let trkpts = coords.map(c => `      <trkpt lat="${c[0]}" lon="${c[1]}"><ele>${route.elevation || 250}</ele></trkpt>`).join('\n');
@@ -311,7 +308,8 @@ document.addEventListener('DOMContentLoaded', () => {
 <gpx version="1.1" creator="Ciclismo Santa Helena PWA" xmlns="http://www.topografix.com/GPX/1/1">
   <metadata>
     <name>${route.name}</name>
-    <desc>Percurso GPX - ${route.category} - Santa Helena PR</desc>
+    <desc>Percurso GPX - ${route.category} - Santa Helena de Goiás GO</desc>
+  </metadata>`X - ${route.category} - Santa Helena PR</desc>
   </metadata>
   <trk>
     <name>${route.name}</name>
