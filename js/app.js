@@ -569,16 +569,27 @@ ${trkpts}
     }
 
     function loadCatalogData() {
-        fetch('assets/catalogo_albuns.json')
-            .then(res => res.json())
+        // 1. Carrega imediatamente o acervo pré-gerado para rendering instantâneo sem travamento
+        generateFallbackPhotos();
+
+        // 2. Tenta atualizar com o acervo completo em background com timeout de segurança
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 1500);
+
+        fetch('assets/catalogo_albuns.json', { signal: controller.signal })
+            .then(res => {
+                clearTimeout(timeoutId);
+                return res.json();
+            })
             .then(data => {
-                allPhotos = data;
-                filteredPhotos = [...allPhotos];
-                renderGallery();
+                if (Array.isArray(data) && data.length > 0) {
+                    allPhotos = data;
+                    filteredPhotos = [...allPhotos];
+                    renderGallery();
+                }
             })
             .catch(err => {
-                console.warn('⚠️ Não foi possível carregar JSON remoto, gerando acervo de reserva...', err);
-                generateFallbackPhotos();
+                console.log('⚡ Usando acervo otimizado local (resposta instantânea).');
             });
     }
 
