@@ -1367,8 +1367,9 @@ nav a:hover, nav a.active {
 
 .strava-tag {
     color: #FC4C02 !important;
-    border-color: rgba(252, 76, 2, 0.3) !important;
-    background: rgba(252, 76, 2, 0.1) !important;
+    background: transparent !important;
+    border: none !important;
+    letter-spacing: 2px;
 }
 
 .strava-container {

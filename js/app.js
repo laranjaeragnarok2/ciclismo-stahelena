@@ -589,7 +589,7 @@ ${trkpts}
 
     let allPhotos = [];
     let filteredPhotos = [];
-    let visibleCount = 12;
+    let visibleCount = window.innerWidth <= 768 ? 4 : 12;
     let currentPhotoIndex = 0;
 
     // Função para traduzir album_id para pasta do repositório
