@@ -236,6 +236,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 fillOpacity: 1
             }).addTo(map).bindPopup(`<b>Ponto de Partida:</b> ${route.name}`);
         });
+
+        setTimeout(() => {
+            if (map) map.invalidateSize();
+        }, 500);
     }
 
     initMap();
@@ -255,24 +259,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
         allRoutes.forEach((r, idx) => {
             const card = document.createElement('div');
-            card.className = 'event-card';
+            card.className = 'product-card';
+            card.style.padding = '22px';
+            card.style.display = 'flex';
+            card.style.flexDirection = 'column';
+            card.style.justifySpaceBetween = 'space-between';
+
+            const svgBg = `<svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#0077FF" stroke-width="1.5"><polygon points="3 11 9 17 21 5"/></svg>`;
+
             card.innerHTML = `
-                <div class="event-header">
-                    <span class="event-date">${r.rating || '⭐ 5.0 (Nova)'}</span>
-                    <span class="event-category">${r.category}</span>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                    <span style="font-size: 0.78rem; font-weight: 800; color: #FFD700; background: rgba(255,215,0,0.12); padding: 4px 10px; border-radius: 12px; border: 1px solid rgba(255,215,0,0.25);">${r.rating || '★ 5.0 (Nova)'}</span>
+                    <span style="font-size: 0.78rem; font-weight: 800; color: var(--accent-cyan); text-transform: uppercase;">${r.category}</span>
                 </div>
-                <div class="event-body">
-                    <h4>${r.name}</h4>
-                    <ul class="event-meta">
-                        <li>⛰️ <strong>Altimetria:</strong> +${r.elevation}m</li>
-                        <li>🛣️ <strong>Terreno:</strong> ${r.terrain || r.description || 'Percurso mapeado pela comunidade.'}</li>
-                        ${r.support ? `<li>🥤 <strong>Pontos de Apoio:</strong> ${r.su                    <div style="background: rgba(255,255,255,0.06); padding: 12px; border-radius: 10px; margin-bottom: 18px; border: 1px solid rgba(255,255,255,0.1); font-size: 0.85rem;">
-                        <span style="color: #FFD700; font-weight: bold;">${r.comment || 'Nenhuma avaliação cadastrada ainda.'}</span>
-                    </div>
-                    <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-                        <button class="btn-route-action btn-download-gpx" data-index="${idx}">📥 Baixar GPX</button>
-                        <button class="btn-route-action btn-open-strava" style="background: linear-gradient(135deg, #FC4C02, #E04300); color: white;">🧡 Abrir Strava</button>
-                    </div>
+                <h4 style="font-family: var(--font-heading); font-size: 1.2rem; font-weight: 800; color: white; margin-bottom: 12px;">${r.name}</h4>
+                <div style="background: rgba(8, 14, 26, 0.6); padding: 14px; border-radius: 10px; margin-bottom: 16px; border: 1px solid rgba(255,255,255,0.06); font-size: 0.85rem; color: var(--text-slate);">
+                    <p style="margin-bottom: 6px;">⛰️ <strong>Altimetria:</strong> +${r.elevation}m | 📍 <strong>Distância:</strong> ${r.distance} km</p>
+                    <p style="margin-bottom: 6px;">🛣️ <strong>Terreno:</strong> ${r.terrain || r.description || 'Percurso mapeado pela comunidade.'}</p>
+                    ${r.support ? `<p>🥤 <strong>Pontos de Apoio:</strong> ${r.support}</p>` : ''}
+                </div>
+                <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: auto;">
+                    <button class="btn-route-action btn-download-gpx" data-index="${idx}">Baixar GPX</button>
+                    <button class="btn-route-action btn-open-strava" style="background: linear-gradient(135deg, #FC4C02, #E04300); color: white;">Strava</button>
                 </div>
             `;
             routesList.appendChild(card);
@@ -309,7 +317,6 @@ document.addEventListener('DOMContentLoaded', () => {
   <metadata>
     <name>${route.name}</name>
     <desc>Percurso GPX - ${route.category} - Santa Helena de Goiás GO</desc>
-  </metadata>`X - ${route.category} - Santa Helena PR</desc>
   </metadata>
   <trk>
     <name>${route.name}</name>
@@ -343,20 +350,26 @@ ${trkpts}
             const elevation = document.getElementById('routeElevation').value;
             const category = document.getElementById('routeCategory').value;
             const description = document.getElementById('routeDescription').value;
+            const fileInput = document.getElementById('routeFile');
+
+            let fileNameNotice = '';
+            if (fileInput && fileInput.files.length > 0) {
+                fileNameNotice = ` (Arquivo: ${fileInput.files[0].name})`;
+            }
 
             const newRoute = {
                 id: `custom-${Date.now()}`,
-                name: name,
+                name: name + fileNameNotice,
                 distance: parseFloat(distance),
                 elevation: parseInt(elevation),
                 category: `${category} ${distance} Km`,
                 terrain: description || 'Rota recomendada por atleta local.',
-                rating: '⭐ 5.0 (1 avaliação)',
+                rating: '★ 5.0 (Nova)',
                 comment: '"Rota cadastrada recentemente pela comunidade!"',
                 coords: [
-                    [-24.8586, -54.3338],
-                    [-24.8500, -54.3200],
-                    [-24.8350, -54.3100]
+                    [-17.8142, -50.5969],
+                    [-17.8000, -50.5800],
+                    [-17.7850, -50.5600]
                 ],
                 color: '#FF5722'
             };
@@ -382,20 +395,22 @@ ${trkpts}
     /* ==========================================================================
        6. STRAVA OAUTH & LEADERBOARD SYSTEM
        ========================================================================== */
+    const svgAvatarPlaceholder = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="%23FC4C02" stroke-width="2"><circle cx="12" cy="7" r="4"/><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/></svg>`;
+
     const leaderboardData = {
         refugio: [
-            { rank: '🥇', name: 'Lucas "Pedal" Silva', avatar: 'assets/logo.jpg', time: '4m 12s', speed: '25.7 km/h' },
-            { rank: '🥈', name: 'Mariana Santos', avatar: 'assets/logo.jpg', time: '4m 35s', speed: '23.5 km/h' },
-            { rank: '🥉', name: 'Carlos Eduardo MTB', avatar: 'assets/logo.jpg', time: '4m 50s', speed: '22.3 km/h' },
-            { rank: '4º', name: 'Fernanda Oliveira', avatar: 'assets/logo.jpg', time: '5m 08s', speed: '21.0 km/h' },
-            { rank: '5º', name: 'Gabriel "Tigre" Costa', avatar: 'assets/logo.jpg', time: '5m 22s', speed: '20.1 km/h' }
+            { rank: '🥇', name: 'Lucas "Pedal" Silva', avatar: svgAvatarPlaceholder, time: '4m 12s', speed: '25.7 km/h' },
+            { rank: '🥈', name: 'Mariana Santos', avatar: svgAvatarPlaceholder, time: '4m 35s', speed: '23.5 km/h' },
+            { rank: '🥉', name: 'Carlos Eduardo MTB', avatar: svgAvatarPlaceholder, time: '4m 50s', speed: '22.3 km/h' },
+            { rank: '4º', name: 'Fernanda Oliveira', avatar: svgAvatarPlaceholder, time: '5m 08s', speed: '21.0 km/h' },
+            { rank: '5º', name: 'Gabriel "Tigre" Costa', avatar: svgAvatarPlaceholder, time: '5m 22s', speed: '20.1 km/h' }
         ],
         balneario: [
-            { rank: '🥇', name: 'Gabriel "Tigre" Costa', avatar: 'assets/logo.jpg', time: '5m 02s', speed: '38.2 km/h' },
-            { rank: '🥈', name: 'Lucas "Pedal" Silva', avatar: 'assets/logo.jpg', time: '5m 15s', speed: '36.6 km/h' },
-            { rank: '🥉', name: 'Rodrigo "Veloz" Lima', avatar: 'assets/logo.jpg', time: '5m 28s', speed: '35.1 km/h' },
-            { rank: '4º', name: 'Mariana Santos', avatar: 'assets/logo.jpg', time: '5m 45s', speed: '33.4 km/h' },
-            { rank: '5º', name: 'André Becker', avatar: 'assets/logo.jpg', time: '6m 01s', speed: '31.9 km/h' }
+            { rank: '🥇', name: 'Gabriel "Tigre" Costa', avatar: svgAvatarPlaceholder, time: '5m 02s', speed: '38.2 km/h' },
+            { rank: '🥈', name: 'Lucas "Pedal" Silva', avatar: svgAvatarPlaceholder, time: '5m 15s', speed: '36.6 km/h' },
+            { rank: '🥉', name: 'Rodrigo "Veloz" Lima', avatar: svgAvatarPlaceholder, time: '5m 28s', speed: '35.1 km/h' },
+            { rank: '4º', name: 'Mariana Santos', avatar: svgAvatarPlaceholder, time: '5m 45s', speed: '33.4 km/h' },
+            { rank: '5º', name: 'André Becker', avatar: svgAvatarPlaceholder, time: '6m 01s', speed: '31.9 km/h' }
         ]
     };
 
