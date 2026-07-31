@@ -1360,6 +1360,12 @@ nav a:hover, nav a.active {
     color: white;
 }
 
+.routes-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 28px;
+}
+
 /* Strava Branded Leaderboard Section */
 .strava-section {
     padding: 80px 8%;
@@ -2721,6 +2727,57 @@ footer {
         font-size: 0.85rem !important;
         flex-shrink: 0 !important;
         margin-left: 6px !important;
+    }
+
+    /* Fix Cycling Hub & Route Builder Mobile Layout */
+    .routes-layout {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+        width: 100% !important;
+        overflow: hidden !important;
+    }
+
+    .map-wrapper,
+    .route-builder-card {
+        padding: 18px 14px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
+    }
+
+    .leaflet-map-container {
+        height: 300px !important;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr !important;
+        gap: 10px !important;
+    }
+
+    .routes-cards-grid {
+        grid-template-columns: 1fr !important;
+        gap: 18px !important;
+        width: 100% !important;
+    }
+
+    .route-card-modern {
+        padding: 18px 14px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .route-card-title {
+        font-size: 1.1rem !important;
+    }
+
+    .route-card-buttons {
+        flex-direction: column !important;
+        gap: 8px !important;
+        width: 100% !important;
+    }
+
+    .route-card-buttons .btn-route-action {
+        width: 100% !important;
     }
 }
 
