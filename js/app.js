@@ -15,7 +15,9 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('beforeinstallprompt', (e) => {
         e.preventDefault();
         deferredPrompt = e;
-        if (btnPWA) btnPWA.style.display = 'flex';
+        if (btnPWA && window.innerWidth > 768) {
+            btnPWA.style.display = 'flex';
+        }
     });
 
     if (btnPWA) {
