@@ -30,7 +30,8 @@
 
 body {
     font-family: var(--font-body);
-    background-color: var(--bg-dark);
+    background: linear-gradient(180deg, #060911 0%, #0c1426 15%, #060a14 30%, #0d1628 50%, #080e1c 70%, #04060c 85%, #020306 100%);
+    background-attachment: fixed;
     color: var(--text-white);
     line-height: 1.6;
     overflow-x: hidden;
@@ -877,48 +878,118 @@ nav a:hover, nav a.active {
     background: var(--accent-orange);
 }
 
-/* Workshop & Services (3 Pricing Cards Layout) */
+/* Workshop & Services (Clean, Modern Service Cards) */
+#oficina, #hub-rotas, #strava, #eventos, #galeria, #contato {
+    background: transparent;
+    position: relative;
+}
+
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 28px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
 }
 
 .service-card {
-    background: var(--bg-card);
-    backdrop-filter: var(--glass-blur);
-    border: 1px solid var(--border-card);
-    border-radius: 12px;
-    padding: 30px;
-    transition: all 0.3s ease;
+    background: rgba(14, 22, 38, 0.7);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 32px;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .service-card:hover {
-    transform: translateY(-6px);
-    border-color: var(--primary-blue);
-    box-shadow: var(--shadow-blue-glow);
+    transform: translateY(-8px);
+    border-color: rgba(0, 119, 255, 0.6);
+    box-shadow: 0 20px 40px rgba(0, 119, 255, 0.25), 0 0 20px rgba(0, 119, 255, 0.15);
+    background: rgba(18, 28, 48, 0.85);
 }
 
-.service-icon {
-    font-size: 2.5rem;
+.service-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.service-icon-box {
+    width: 54px;
+    height: 54px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, rgba(0, 119, 255, 0.2), rgba(56, 189, 248, 0.1));
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    color: var(--accent-cyan);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0, 119, 255, 0.2);
+}
+
+.service-badge {
+    font-size: 0.72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    background: rgba(0, 119, 255, 0.15);
+    color: var(--primary-blue);
+    border: 1px solid rgba(0, 119, 255, 0.3);
+}
+
+.service-badge.cyan {
+    background: rgba(56, 189, 248, 0.15);
+    color: var(--accent-cyan);
+    border-color: rgba(56, 189, 248, 0.3);
+}
+
+.service-badge.orange {
+    background: rgba(255, 87, 34, 0.15);
     color: var(--accent-orange);
-    margin-bottom: 16px;
+    border-color: rgba(255, 87, 34, 0.3);
 }
 
 .service-card h4 {
     font-family: var(--font-heading);
-    font-size: 1.4rem;
+    font-size: 1.35rem;
     font-weight: 800;
+    color: var(--text-white);
     margin-bottom: 12px;
 }
 
 .service-card p {
     color: var(--text-muted);
-    font-size: 0.95rem;
+    font-size: 0.93rem;
+    line-height: 1.6;
     margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.service-features {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 24px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.service-features span {
+    font-size: 0.84rem;
+    color: var(--text-slate);
+    font-weight: 600;
+}
+
+.service-btn {
+    width: 100%;
+    margin-top: auto;
+    text-align: center;
+    font-size: 0.82rem;
+    letter-spacing: 0.5px;
 }
 
 /* Hub de Rotas Layout & Map */
@@ -926,53 +997,107 @@ nav a:hover, nav a.active {
     display: grid;
     grid-template-columns: 1.2fr 1fr;
     gap: 30px;
+    align-items: stretch;
 }
 
 .map-wrapper {
-    background: var(--bg-card);
-    backdrop-filter: var(--glass-blur);
-    border: 1px solid var(--border-card);
-    border-radius: 12px;
+    background: rgba(14, 22, 38, 0.7);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .map-header {
-    padding: 16px 20px;
-    background: #04060C;
-    color: white;
+    padding: 18px 24px;
+    background: rgba(6, 12, 24, 0.95);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.map-title-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.map-pulse-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #10B981;
+    box-shadow: 0 0 12px #10B981;
 }
 
 .map-header h4 {
     font-family: var(--font-heading);
-    font-size: 1.1rem;
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: white;
 }
 
 .map-status {
     font-size: 0.8rem;
     color: var(--accent-cyan);
+    font-weight: 500;
 }
 
 .leaflet-map-container {
-    height: 420px;
+    height: 440px;
     width: 100%;
 }
 
 .route-builder-card {
-    background: var(--bg-card);
-    backdrop-filter: var(--glass-blur);
-    border: 1px solid var(--border-card);
+    background: rgba(14, 22, 38, 0.7);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     padding: 30px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.form-header {
+    margin-bottom: 20px;
+}
+
+.form-badge {
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--accent-cyan);
+    background: rgba(56, 189, 248, 0.12);
+    padding: 3px 10px;
     border-radius: 12px;
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    display: inline-block;
+    margin-bottom: 8px;
 }
 
 .route-builder-card h4 {
     font-family: var(--font-heading);
-    font-size: 1.4rem;
-    margin-bottom: 6px;
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: white;
+}
+
+.form-header p {
+    color: var(--text-muted);
+    font-size: 0.88rem;
 }
 
 .route-form .form-group {
-    margin-bottom: 18px;
+    margin-bottom: 16px;
     display: flex;
     flex-direction: column;
     gap: 6px;
@@ -980,37 +1105,63 @@ nav a:hover, nav a.active {
 
 .route-form label {
     font-weight: 700;
-    font-size: 0.88rem;
-    color: var(--accent-cyan);
+    font-size: 0.82rem;
+    color: var(--text-slate);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .route-form input, .route-form select, .route-form textarea {
-    background: rgba(15, 23, 42, 0.9);
-    border: 1px solid var(--border-card);
-    border-radius: 6px;
+    background: rgba(8, 14, 26, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 10px;
     padding: 12px 16px;
     color: var(--text-white);
     font-family: var(--font-body);
-    font-size: 0.95rem;
+    font-size: 0.92rem;
     outline: none;
-    transition: border-color 0.3s;
+    transition: all 0.3s ease;
 }
 
 .route-form input:focus, .route-form select:focus, .route-form textarea:focus {
     border-color: var(--primary-blue);
+    box-shadow: 0 0 15px rgba(0, 119, 255, 0.3);
+    background: rgba(12, 20, 36, 0.95);
 }
 
 .form-row {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 15px;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 12px;
 }
 
-/* Strava Leaderboard */
+.btn-submit-route {
+    width: 100%;
+    margin-top: 10px;
+    font-size: 0.88rem;
+}
+
+.subheading-center {
+    text-align: center;
+    margin: 45px 0 25px 0;
+}
+
+.subheading-center h4 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: white;
+}
+
+/* Strava Branded Leaderboard Section */
 .strava-section {
-    background: var(--bg-surface);
-    border-top: 1px solid var(--border-card);
-    border-bottom: 1px solid var(--border-card);
+    padding: 80px 8%;
+}
+
+.strava-tag {
+    color: #FC4C02 !important;
+    border-color: rgba(252, 76, 2, 0.3) !important;
+    background: rgba(252, 76, 2, 0.1) !important;
 }
 
 .strava-container {
@@ -1020,59 +1171,103 @@ nav a:hover, nav a.active {
 }
 
 .strava-connect-card {
-    background: var(--bg-card);
-    backdrop-filter: var(--glass-blur);
-    border: 1px solid var(--border-card);
-    padding: 35px;
-    border-radius: 12px;
+    background: rgba(14, 22, 38, 0.7);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(252, 76, 2, 0.25);
+    padding: 38px 30px;
+    border-radius: 16px;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
-.strava-logo {
-    height: 45px;
+.strava-badge-icon {
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    background: rgba(252, 76, 2, 0.12);
+    border: 2px solid rgba(252, 76, 2, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-bottom: 20px;
+    box-shadow: 0 0 25px rgba(252, 76, 2, 0.25);
 }
 
-.btn-strava {
-    background: var(--strava-orange);
+.strava-connect-card h4 {
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.strava-connect-card p {
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+.btn-strava-official {
+    background: linear-gradient(135deg, #FC4C02, #E04300);
     color: white;
     border: none;
-    padding: 14px 28px;
-    border-radius: 6px;
+    padding: 14px 32px;
+    border-radius: 30px;
+    font-family: var(--font-heading);
     font-weight: 800;
-    font-size: 0.95rem;
+    font-size: 0.88rem;
+    letter-spacing: 0.6px;
     cursor: pointer;
-    transition: all 0.3s;
+    box-shadow: 0 8px 25px rgba(252, 76, 2, 0.4);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-transform: uppercase;
 }
 
-.btn-strava:hover {
-    background: #E04300;
-    transform: translateY(-2px);
+.btn-strava-official:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 14px 35px rgba(252, 76, 2, 0.6);
 }
 
 .leaderboard-card {
-    background: var(--bg-card);
-    backdrop-filter: var(--glass-blur);
-    border: 1px solid var(--border-card);
-    border-radius: 12px;
-    padding: 25px;
+    background: rgba(14, 22, 38, 0.7);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .leaderboard-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 24px;
     flex-wrap: wrap;
     gap: 12px;
+}
+
+.leaderboard-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.trophy-icon {
+    font-size: 1.4rem;
 }
 
 .leaderboard-header h4 {
     font-family: var(--font-heading);
     font-size: 1.3rem;
+    font-weight: 800;
 }
 
 .segment-tabs {
@@ -1081,310 +1276,419 @@ nav a:hover, nav a.active {
 }
 
 .seg-tab {
-    background: rgba(15, 23, 42, 0.8);
-    border: 1px solid var(--border-card);
+    background: rgba(8, 14, 26, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     color: var(--text-slate);
-    padding: 6px 14px;
-    border-radius: 4px;
-    font-size: 0.82rem;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.8rem;
     font-weight: 700;
     cursor: pointer;
-    transition: all 0.3s;
+    transition: all 0.3s ease;
 }
 
-.seg-tab.active {
-    background: var(--strava-orange);
+.seg-tab.active, .seg-tab:hover {
+    background: linear-gradient(135deg, #FC4C02, #E04300);
+    border-color: #FC4C02;
     color: white;
+    box-shadow: 0 4px 15px rgba(252, 76, 2, 0.3);
 }
 
 .leaderboard-list {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
 }
 
 .leaderboard-item {
-    background: rgba(15, 23, 42, 0.8);
-    border: 1px solid var(--border-card);
-    border-radius: 6px;
-    padding: 12px 18px;
+    background: rgba(8, 14, 26, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 14px 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    transition: all 0.3s ease;
+}
+
+.leaderboard-item:hover {
+    border-color: rgba(252, 76, 2, 0.4);
+    transform: translateX(4px);
+    background: rgba(14, 22, 38, 0.95);
 }
 
 .athlete-info {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 14px;
 }
 
 .athlete-rank {
     font-family: var(--font-heading);
-    font-weight: 800;
+    font-weight: 900;
     font-size: 1.1rem;
-    width: 28px;
+    width: 32px;
+    color: var(--accent-cyan);
 }
 
 .athlete-avatar {
-    width: 38px;
-    height: 38px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     object-fit: cover;
-    border: 2px solid var(--strava-orange);
+    border: 2px solid #FC4C02;
 }
 
 .athlete-name {
     font-weight: 700;
     font-size: 0.95rem;
+    color: white;
 }
 
 .athlete-time {
     font-family: var(--font-heading);
     font-weight: 800;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     color: var(--accent-cyan);
 }
 
-/* Gallery Grid & Lightbox */
-.gallery-grid {
+/* Streamlined Events Section */
+.events-streamlined-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 28px;
 }
 
-.gallery-card {
-    position: relative;
-    border-radius: 8px;
-    overflow: hidden;
-    height: 240px;
-    cursor: pointer;
-    background: #000;
-    border: 1px solid var(--border-card);
-    transition: transform 0.4s ease;
+.event-card-modern {
+    background: rgba(14, 22, 38, 0.7);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 28px;
+    transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
-.gallery-card:hover {
-    transform: translateY(-4px);
+.event-card-modern:hover {
+    transform: translateY(-6px);
     border-color: var(--primary-blue);
+    box-shadow: 0 16px 35px rgba(0, 119, 255, 0.25);
 }
 
-.gallery-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.6s ease;
-}
-
-.gallery-card:hover img {
-    transform: scale(1.08);
-}
-
-.gallery-card-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(7, 11, 20, 0.9) 0%, transparent 100%);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 18px;
-    color: white;
-}
-
-.gallery-card:hover .gallery-card-overlay {
-    opacity: 1;
-}
-
-/* Lightbox Modal */
-.lightbox-modal {
-    position: fixed;
-    inset: 0;
-    z-index: 2000;
-    background: rgba(7, 11, 20, 0.95);
-    backdrop-filter: blur(10px);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    padding: 40px;
-}
-
-.lightbox-modal.show {
-    display: flex;
-}
-
-.lightbox-close {
-    position: absolute;
-    top: 25px;
-    right: 35px;
-    color: white;
-    font-size: 2.5rem;
-    cursor: pointer;
-    z-index: 2010;
-}
-
-.lightbox-nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.15);
-    color: white;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: none;
-}
-
-.lightbox-nav.prev { left: 30px; }
-.lightbox-nav.next { right: 30px; }
-
-.lightbox-content {
-    max-width: 90vw;
-    max-height: 85vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.lightbox-content img {
-    max-width: 100%;
-    max-height: 75vh;
-    border-radius: 8px;
-    object-fit: contain;
-}
-
-.lightbox-caption {
-    margin-top: 15px;
-    text-align: center;
-    color: var(--text-slate);
-}
-
-/* Event Registration Modal */
-.modal-overlay {
-    position: fixed;
-    inset: 0;
-    z-index: 2000;
-    background: rgba(7, 11, 20, 0.88);
-    backdrop-filter: var(--glass-blur);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-}
-
-.modal-overlay.show {
-    display: flex;
-}
-
-.modal-container {
-    background: var(--bg-surface);
-    border: 1px solid var(--border-card);
-    border-radius: 12px;
-    width: 100%;
-    max-width: 540px;
-    padding: 35px;
-}
-
-.modal-header {
+.event-card-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
-    border-bottom: 1px solid var(--border-card);
-    padding-bottom: 12px;
+    margin-bottom: 18px;
 }
 
-.modal-header h4 {
+.event-date-chip {
     font-family: var(--font-heading);
-    font-size: 1.4rem;
-    color: var(--primary-blue);
+    font-weight: 900;
+    font-size: 0.8rem;
+    background: linear-gradient(135deg, var(--accent-orange), #E64A19);
+    color: white;
+    padding: 6px 14px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 12px rgba(255, 87, 34, 0.3);
 }
 
-.modal-close {
-    background: transparent;
-    border: none;
-    color: var(--text-muted);
-    font-size: 1.8rem;
-    cursor: pointer;
+.event-date-chip.blue {
+    background: linear-gradient(135deg, var(--primary-blue), #00A6FF);
+    box-shadow: 0 4px 12px rgba(0, 119, 255, 0.3);
 }
 
-.modal-form .form-group {
-    margin-bottom: 16px;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-}
-
-.modal-form label {
-    font-size: 0.88rem;
+.event-tag {
+    font-size: 0.75rem;
     font-weight: 700;
     color: var(--accent-cyan);
+    text-transform: uppercase;
 }
 
-.modal-form input, .modal-form select {
-    background: rgba(15, 23, 42, 0.9);
-    border: 1px solid var(--border-card);
-    border-radius: 6px;
-    padding: 12px;
-    color: var(--text-white);
-    font-family: var(--font-body);
-    outline: none;
+.event-card-modern h4 {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 16px;
+    line-height: 1.35;
 }
 
-/* Contact Card & 4-Column Footer (Reference Layout) */
-.contact-card {
-    background: var(--bg-card);
-    backdrop-filter: var(--glass-blur);
-    border: 1px solid var(--border-card);
-    padding: 45px;
-    border-radius: 12px;
-    max-width: 760px;
-    margin: 0 auto;
-    text-align: center;
+.event-details-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 24px;
+    padding: 14px;
+    background: rgba(8, 14, 26, 0.6);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-.contact-info p {
-    font-size: 1.1rem;
-    margin-bottom: 14px;
+.event-detail-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.88rem;
     color: var(--text-slate);
 }
 
-.contact-buttons {
+.detail-icon {
+    font-size: 1.05rem;
+}
+
+.event-cta-btn {
+    width: 100%;
+    text-align: center;
+    font-size: 0.84rem;
+}
+
+/* Curated Photo Gallery Mosaic */
+.gallery-mosaic-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 22px;
+}
+
+.gallery-more-box {
+    text-align: center;
+    margin-top: 35px;
+}
+
+.btn-load-more {
+    background: rgba(14, 22, 38, 0.8);
+    color: var(--text-white);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.btn-load-more:hover {
+    background: var(--primary-blue);
+    border-color: var(--primary-blue);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 119, 255, 0.4);
+}
+
+/* Modern Shop Facade Section */
+.shop-facade-card {
+    background: rgba(14, 22, 38, 0.7);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 20px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+.shop-facade-image-wrapper {
+    position: relative;
+    min-height: 420px;
+    overflow: hidden;
+}
+
+.shop-facade-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+}
+
+.shop-facade-card:hover .shop-facade-img {
+    transform: scale(1.04);
+}
+
+.shop-open-badge {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: rgba(6, 12, 24, 0.9);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.shop-facade-info {
+    padding: 40px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.shop-facade-info h4 {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.shop-description {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 24px;
+    line-height: 1.6;
+}
+
+.shop-info-list {
+    display: flex;
+    flex-direction: column;
     gap: 16px;
-    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.shop-info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+}
+
+.info-icon {
+    font-size: 1.2rem;
+    margin-top: 2px;
+}
+
+.shop-info-item strong {
+    color: var(--accent-cyan);
+    font-size: 0.88rem;
+    display: block;
+    margin-bottom: 2px;
+}
+
+.shop-info-item p {
+    color: var(--text-slate);
+    font-size: 0.92rem;
+    margin: 0;
+}
+
+.shop-action-buttons {
+    display: flex;
+    gap: 14px;
     flex-wrap: wrap;
 }
 
+.shop-btn {
+    font-size: 0.84rem;
+    padding: 12px 24px;
+}
+
+.shop-btn-secondary {
+    background: rgba(255, 255, 255, 0.08);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 12px 24px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 0.84rem;
+    transition: all 0.3s ease;
+}
+
+.shop-btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.18);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+/* Dark Comprehensive 4-Column Footer */
 footer {
-    background: #04060C;
-    border-top: 1px solid var(--border-card);
-    padding: 60px 8% 30px 8%;
+    background: #030509;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 70px 8% 30px 8%;
     color: var(--text-muted);
 }
 
 .footer-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: 1.3fr 1fr 1fr 1fr;
     gap: 40px;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
+}
+
+.footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.footer-logo {
+    height: 44px;
+    width: 44px;
+    border-radius: 50%;
+    border: 2px solid var(--primary-blue);
+}
+
+.footer-brand h4 {
+    margin: 0;
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 900;
+    color: white;
+}
+
+.footer-col p {
+    font-size: 0.9rem;
+    color: var(--text-slate);
+    line-height: 1.65;
+    margin-bottom: 16px;
+}
+
+.footer-socials {
+    display: flex;
+    gap: 12px;
+    margin-top: 18px;
+}
+
+.social-link {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 1.05rem;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    background: var(--primary-blue);
+    border-color: var(--primary-blue);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 119, 255, 0.4);
 }
 
 .footer-col h4 {
     font-family: var(--font-heading);
-    font-size: 1.2rem;
+    font-size: 1.05rem;
+    font-weight: 800;
     color: white;
     text-transform: uppercase;
-    margin-bottom: 18px;
+    margin-bottom: 20px;
     position: relative;
-    padding-bottom: 8px;
+    padding-bottom: 10px;
 }
 
 .footer-col h4::after {
@@ -1392,15 +1696,10 @@ footer {
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 35px;
-    height: 2px;
-    background: var(--primary-blue);
-}
-
-.footer-col p {
-    font-size: 0.92rem;
-    color: var(--text-slate);
-    line-height: 1.6;
+    width: 30px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-blue), var(--accent-cyan));
+    border-radius: 2px;
 }
 
 .footer-col ul {
@@ -1408,25 +1707,42 @@ footer {
 }
 
 .footer-col ul li {
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     font-size: 0.9rem;
 }
 
 .footer-col ul li a {
     color: var(--text-slate);
     text-decoration: none;
-    transition: color 0.3s;
+    transition: all 0.3s ease;
+    display: inline-block;
 }
 
 .footer-col ul li a:hover {
-    color: var(--accent-orange);
+    color: var(--accent-cyan);
+    transform: translateX(4px);
+}
+
+.footer-highlight-badge {
+    margin-top: 15px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    background: rgba(0, 119, 255, 0.12);
+    border: 1px solid rgba(0, 119, 255, 0.25);
+    color: var(--accent-cyan);
+    font-size: 0.84rem;
+    font-weight: 700;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 25px;
 }
 
 .copyright {
     text-align: center;
-    border-top: 1px solid var(--border-card);
-    padding-top: 25px;
-    font-size: 0.88rem;
+    font-size: 0.86rem;
+    color: var(--text-muted);
 }
 
 /* Responsive Queries */
