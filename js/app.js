@@ -407,6 +407,20 @@ ${trkpts}
             { rank: '🥉', name: 'Rodrigo "Veloz" Lima', time: '5m 28s', speed: '35.1 km/h' },
             { rank: '4º', name: 'Mariana Santos', time: '5m 45s', speed: '33.4 km/h' },
             { rank: '5º', name: 'André Becker', time: '6m 01s', speed: '31.9 km/h' }
+        ],
+        aguas: [
+            { rank: '🥇', name: 'Rodrigo "Veloz" Lima', time: '21m 10s', speed: '34.0 km/h' },
+            { rank: '🥈', name: 'Carlos Eduardo MTB', time: '22m 04s', speed: '32.6 km/h' },
+            { rank: '🥉', name: 'Lucas "Pedal" Silva', time: '22m 45s', speed: '31.6 km/h' },
+            { rank: '4º', name: 'Fernanda Oliveira', time: '23m 12s', speed: '31.0 km/h' },
+            { rank: '5º', name: 'Mariana Santos', time: '24m 00s', speed: '30.0 km/h' }
+        ],
+        itaipu: [
+            { rank: '🥇', name: 'Carlos Eduardo MTB', time: '54m 30s', speed: '30.8 km/h' },
+            { rank: '🥈', name: 'Gabriel "Tigre" Costa', time: '56m 12s', speed: '29.9 km/h' },
+            { rank: '🥉', name: 'Lucas "Pedal" Silva', time: '58m 04s', speed: '28.9 km/h' },
+            { rank: '4º', name: 'André Becker', time: '1h 01m', speed: '27.5 km/h' },
+            { rank: '5º', name: 'Fernanda Oliveira', time: '1h 03m', speed: '26.6 km/h' }
         ]
     };
 
@@ -664,9 +678,6 @@ ${trkpts}
         });
 
         if (btnLoadMorePhotos) {
-            btnLoadMorePhotos.style.display = visibleCount >= filteredPhotos.length ? 'none' : 'inline-block';
-        }
-    }dMorePhotos) {
             btnLoadMorePhotos.style.display = visibleCount >= filteredPhotos.length ? 'none' : 'inline-block';
         }
     }

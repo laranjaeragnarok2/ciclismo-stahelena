@@ -736,13 +736,29 @@
                     <svg width="42" height="42" viewBox="0 0 24 24" fill="#FC4C02"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.429 0 5.462 9.878h4.172z"/></svg>
                 </div>
                 <h4>Conecte seu perfil do Strava</h4>
-                <p>Sincronize seus pedais automaticamente e dispute as primeiras posições do ranking local.</p>
+                <p>Sincronize seus pedais automaticamente e dispute as primeiras posições do ranking local com atletas da região.</p>
 
                 <div id="stravaStatusArea">
                     <button id="btnStravaAuth" class="btn-strava-official">
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.429 0 5.462 9.878h4.172z"/></svg>
                         <span>CONECTAR COM STRAVA</span>
                     </button>
+                </div>
+
+                <!-- Estatísticas de Placeholders do Clube -->
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; width: 100%; margin-top: 24px; text-align: center;">
+                    <div style="background: rgba(8, 14, 26, 0.7); padding: 12px 8px; border-radius: 12px; border: 1px solid rgba(252, 76, 2, 0.2);">
+                        <div style="font-size: 0.7rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase;">Atletas</div>
+                        <div style="font-family: var(--font-heading); font-size: 1.15rem; font-weight: 900; color: #FC4C02; margin-top: 2px;">142</div>
+                    </div>
+                    <div style="background: rgba(8, 14, 26, 0.7); padding: 12px 8px; border-radius: 12px; border: 1px solid rgba(252, 76, 2, 0.2);">
+                        <div style="font-size: 0.7rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase;">Km no Mês</div>
+                        <div style="font-family: var(--font-heading); font-size: 1.15rem; font-weight: 900; color: #FC4C02; margin-top: 2px;">18.420</div>
+                    </div>
+                    <div style="background: rgba(8, 14, 26, 0.7); padding: 12px 8px; border-radius: 12px; border: 1px solid rgba(252, 76, 2, 0.2);">
+                        <div style="font-size: 0.7rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase;">Segmentos</div>
+                        <div style="font-family: var(--font-heading); font-size: 1.15rem; font-weight: 900; color: #FC4C02; margin-top: 2px;">12 KOMs</div>
+                    </div>
                 </div>
             </div>
 
@@ -755,7 +771,9 @@
                     </div>
                     <div class="segment-tabs">
                         <button class="seg-tab active" data-segment="refugio">Subida do Vale (1.8 km)</button>
-                        <button class="seg-tab" data-segment="balneario">Sprint da GO-210 (3.2 km)</button>
+                        <button class="seg-tab" data-segment="balneario">Sprint GO-210 (3.2 km)</button>
+                        <button class="seg-tab" data-segment="aguas">Circuito Águas (12 km)</button>
+                        <button class="seg-tab" data-segment="itaipu">Desafio Itaipu (28 km)</button>
                     </div>
                 </div>
 
@@ -933,10 +951,18 @@
                 </div>
                 <p>Loja de bicicletas, oficina mecânica de alta performance e hub de rotas GPX no Sudoeste Goiano.</p>
                 <div class="footer-socials">
-                    <a href="https://instagram.com" target="_blank" aria-label="Instagram" class="social-link">📸</a>
-                    <a href="https://facebook.com" target="_blank" aria-label="Facebook" class="social-link">📘</a>
-                    <a href="https://wa.me/5564993026839" target="_blank" aria-label="WhatsApp" class="social-link">💬</a>
-                    <a href="https://strava.com" target="_blank" aria-label="Strava" class="social-link">🧡</a>
+                    <a href="https://instagram.com" target="_blank" aria-label="Instagram" class="social-link">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                    </a>
+                    <a href="https://facebook.com" target="_blank" aria-label="Facebook" class="social-link">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                    </a>
+                    <a href="https://wa.me/5564993026839" target="_blank" aria-label="WhatsApp" class="social-link">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c0-5.445 4.43-9.875 9.877-9.875 2.637 0 5.116 1.028 6.978 2.893 1.861 1.864 2.887 4.344 2.886 6.982 0 5.446-4.43 9.876-9.875 9.876"/></svg>
+                    </a>
+                    <a href="https://strava.com" target="_blank" aria-label="Strava" class="social-link">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.429 0 5.462 9.878h4.172z"/></svg>
+                    </a>
                 </div>
             </div>
 
