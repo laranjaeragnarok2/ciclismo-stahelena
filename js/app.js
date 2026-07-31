@@ -139,62 +139,62 @@ document.addEventListener('DOMContentLoaded', () => {
     const initialRoutes = [
         {
             id: 'rota-1',
-            name: 'Circuito Balneário -> Linha São Francisco',
-            distance: 45,
-            elevation: 480,
-            category: 'MTB 45 Km',
-            terrain: '70% Terra / 30% Asfalto',
-            support: 'Lanchonete da Linha São Francisco',
-            rating: '⭐ 4.9 (38 avaliações)',
-            comment: '"Trilha sensacional, bastante sombra e ponto de água no percurso!"',
+            name: 'Circuito Represa & Vale do Rio Turvo',
+            distance: 42,
+            elevation: 520,
+            category: 'MTB 42 Km',
+            terrain: '75% Terra / Estradas Rurais / 25% Asfalto',
+            support: 'Ponto de Apoio Rio Turvo',
+            rating: '⭐ 4.9 (42 avaliações)',
+            comment: '"Rota clássica de MTB no Sudoeste Goiano com belíssimas paisagens rurais!"',
             coords: [
-                [-24.8586, -54.3338], // Balneário Terra das Águas
-                [-24.8450, -54.3200],
-                [-24.8300, -54.3000],
-                [-24.8150, -54.2800], // Linha São Francisco
-                [-24.8400, -54.3100],
-                [-24.8586, -54.3338]
+                [-17.8142, -50.5969], // Centro Santa Helena de Goiás
+                [-17.8000, -50.5800],
+                [-17.7850, -50.5600],
+                [-17.7700, -50.5400],
+                [-17.7950, -50.5750],
+                [-17.8142, -50.5969]
             ],
-            color: '#FF5722'
+            color: '#0077FF'
         },
         {
             id: 'rota-2',
-            name: 'Rota das Águas & Refúgio Itaipu',
-            distance: 28,
-            elevation: 210,
-            category: 'Cicloturismo 28 Km',
-            terrain: 'Ciclovia & Estradas Rurais Pavimentadas',
-            support: 'Refúgio Biológico de Santa Helena',
-            rating: '⭐ 4.8 (24 avaliações)',
-            comment: '"Excelente rota para famílias e pedais recreativos aos domingos!"',
+            name: 'Rota Cicloturismo GO-210 & Zona Rural',
+            distance: 25,
+            elevation: 240,
+            category: 'Cicloturismo 25 Km',
+            terrain: 'Estradas Rurais Pavimentadas & Terreno Plano',
+            support: 'Apoio Loja Ciclismo Santa Helena',
+            rating: '⭐ 4.8 (31 avaliações)',
+            comment: '"Pedal leve e agradável, ideal para iniciantes e treinos de giro!"',
             coords: [
-                [-24.8586, -54.3338],
-                [-24.8700, -54.3450],
-                [-24.8900, -54.3600], // Margem Lago de Itaipu
-                [-24.8750, -54.3500],
-                [-24.8586, -54.3338]
+                [-17.8142, -50.5969],
+                [-17.8300, -50.6100],
+                [-17.8450, -50.6250],
+                [-17.8350, -50.6050],
+                [-17.8142, -50.5969]
             ],
-            color: '#1E5128'
+            color: '#10B981'
         },
         {
             id: 'rota-3',
-            name: 'Desafio MTB Refúgio Biológico Itaipu',
-            distance: 60,
-            elevation: 750,
-            category: 'Desafio MTB 60 Km',
-            terrain: '90% Trilha Fechada / Estradas de Barro',
-            support: 'Posto de Controle Refúgio',
-            rating: '⭐ 5.0 (52 avaliações)',
-            comment: '"Exige preparo físico e técnica nas descidas. Altimetria espetacular!"',
+            name: 'Desafio MTB Sudoeste Goiano',
+            distance: 65,
+            elevation: 810,
+            category: 'Desafio MTB 65 Km',
+            terrain: 'Estradas de Chão / Subidas Exigentes',
+            support: 'Carro de Apoio da Oficina',
+            rating: '⭐ 5.0 (68 avaliações)',
+            comment: '"Exige preparo físico e ritmo constante. Altimetria excelente para treinos!"',
             coords: [
-                [-24.8586, -54.3338],
-                [-24.8400, -54.3500],
-                [-24.8200, -54.3700],
-                [-24.7900, -54.3500],
-                [-24.8200, -54.3300],
-                [-24.8586, -54.3338]
+                [-17.8142, -50.5969],
+                [-17.7900, -50.6200],
+                [-17.7600, -50.6400],
+                [-17.7400, -50.6100],
+                [-17.7700, -50.5800],
+                [-17.8142, -50.5969]
             ],
-            color: '#FFC107'
+            color: '#FF5722'
         }
     ];
 
@@ -202,8 +202,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const mapContainer = document.getElementById('routeMap');
         if (!mapContainer || typeof L === 'undefined') return;
 
-        // Centrado em Santa Helena - PR
-        map = L.map('routeMap').setView([-24.8586, -54.3338], 12);
+        // Centrado em Santa Helena de Goiás - GO
+        map = L.map('routeMap').setView([-17.8142, -50.5969], 12);
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 18,
