@@ -1,12 +1,12 @@
-# 🚴‍♂️ Ciclismo Santa Helena Sports
+# 🚴‍♂️ Template de Site para Loja de Ciclismo & Hub Esportivo
 
-> **Hub de Rotas GPX, Leaderboard Strava, Calendário de Eventos e App Oficial PWA** do Ciclismo Santa Helena Sports (Santa Helena - PR).
+> **Template de Site para Loja de Ciclismo**, Hub de Rotas GPX, Leaderboard Strava, Calendário de Eventos e App Oficial PWA.
 
 ---
 
 ## 🎯 Sobre o Projeto
 
-O **Portal & App Ciclismo Santa Helena Sports** é uma plataforma digital moderna e responsiva projetada para centralizar a vida esportiva e turística dos ciclistas da Região Oeste do Paraná (Balneário Terra das Águas, Refúgio Biológico da Itaipu e circuitos rurais).
+Este é um **Template de Site para Loja de Ciclismo** e plataforma digital esportiva completa, moderna e responsiva. Ele foi projetado para centralizar a apresentação de produtos, serviços de oficina, agendamentos, passeios e a vida esportiva/turística de ciclistas.
 
 Desenvolvido como uma **Progressive Web App (PWA)** de alta performance, o projeto funciona tanto no navegador desktop/mobile quanto instalado diretamente na tela inicial do smartphone com suporte offline.
 

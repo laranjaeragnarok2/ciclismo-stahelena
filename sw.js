@@ -1,4 +1,4 @@
-const CACHE_NAME = 'ciclismo-sh-v3';
+const CACHE_NAME = 'ciclismo-sh-v4';
 
 self.addEventListener('install', (event) => {
   self.skipWaiting();
